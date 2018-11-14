@@ -1,0 +1,1 @@
+class="sortable" sortable-data-url="{{route('admin{$ROUTE}Order')}}"

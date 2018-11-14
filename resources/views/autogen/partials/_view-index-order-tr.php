@@ -1,0 +1,1 @@
+sortable-id="{$FOLDER}-{{$d->id}}"

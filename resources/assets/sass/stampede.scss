@@ -1,0 +1,51 @@
+@import 'paper-dashboard/variables';
+.navbar {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	height: 63px;
+
+	.container-fluid {
+		text-align: left;
+		justify-content: end;
+		.btn-round {
+			height: 38px;
+			min-width: 38px;
+			width: 38px;
+			padding: 0;
+			font-size: 15px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			position: relative;
+			line-height: normal;
+			i, i.nc-icon {
+				position: relative;
+				transform: initial;
+				position: relative;
+				left: 0;
+				top: 0;
+			}
+		}
+	}
+}
+
+.sidebar {
+	.logo {
+		a.simple-text {
+			text-transform: initial;
+		}
+		a.logo-mini {
+			opacity: 1;
+		}
+	}
+	.user {
+		.info {
+			> a {
+				line-height: 24px;
+			}
+		}
+	}
+}

@@ -1,0 +1,1 @@
+<td><i class="fa fa-th-large sortable-icon" aria-hidden="true"></i></td>

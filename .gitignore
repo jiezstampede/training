@@ -1,0 +1,13 @@
+/vendor
+/node_modules
+/public/build
+/public/.tmp
+/public/css/*.map
+/public/js/*.map
+/public/upload/assets/*
+!/public/upload/assets/index.html
+!/public/upload/assets/bamboo.jpg
+/resources/bower
+Homestead.yaml
+Homestead.json
+.env

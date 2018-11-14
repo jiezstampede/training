@@ -1,0 +1,39 @@
+<table class='table table-striped table-bordered'>
+    <tr>
+        <th>Product_id</th>
+        <td>{{$data->product_id}}</td>
+    </tr>
+    <tr>
+        <th>Product_id</th>
+        <td>{{$data->product_id}}</td>
+    </tr>
+    <tr>
+        <th>No_units</th>
+        <td>{{$data->no_units}}</td>
+    </tr>
+    <tr>
+        <th>No_units</th>
+        <td>{{$data->no_units}}</td>
+    </tr>
+    <tr>
+        <th>Weight</th>
+        <td>{{$data->weight}}</td>
+    </tr>
+    <tr>
+        <th>Prd_date</th>
+        <td>{{$data->prd_date}}</td>
+    </tr>
+    <tr>
+        <th>Prd_date</th>
+        <td>{{$data->prd_date}}</td>
+    </tr>
+    <tr>
+        <th>Exp_date</th>
+        <td>{{$data->exp_date}}</td>
+    </tr>
+    <tr>
+        <th>Exp_date</th>
+        <td>{{$data->exp_date}}</td>
+    </tr>
+</table>
+<a href='{{route("adminActivitiesView", [$data->id])}}' class='btn btn-primary'>More Details</a>

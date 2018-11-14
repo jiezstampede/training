@@ -1,0 +1,44 @@
+.navbar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 63px; }
+  .navbar .container-fluid {
+    text-align: left;
+    -ms-flex-pack: end;
+    justify-content: end; }
+    .navbar .container-fluid .btn-round {
+      height: 38px;
+      min-width: 38px;
+      width: 38px;
+      padding: 0;
+      font-size: 15px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      line-height: normal; }
+      .navbar .container-fluid .btn-round i, .navbar .container-fluid .btn-round i.nc-icon {
+        position: relative;
+        transform: initial;
+        position: relative;
+        left: 0;
+        top: 0; }
+
+.sidebar .logo a.simple-text {
+  text-transform: initial; }
+
+.sidebar .logo a.logo-mini {
+  opacity: 1; }
+
+.sidebar .user .info > a {
+  line-height: 24px; }
+
+/*# sourceMappingURL=stampede-sass.css.map */
+
+/*# sourceMappingURL=stampede.css.map */
