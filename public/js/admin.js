@@ -68,7 +68,7 @@ $(document).ready(function() {
 		$('body').toggleClass('hide-menu');
 	});
 	$(window).resize(function() {
-		checkWindowWidth();
+		// checkWindowWidth();
 		boxElementFromWidth();
 	});
 	function checkWindowWidth() {
@@ -151,7 +151,7 @@ $(document).ready(function() {
 				if (! _.isUndefined(data.redirect)) {
 					setTimeout(function() {
 						window.location = data.redirect;
-					}, 2500);
+					}, 1000);
 				}
 			},
 			error : function(data, text, error) {
@@ -261,9 +261,11 @@ $(document).ready(function() {
 		var redactorUpload = redactor.data('redactor-upload');
 		var token = redactor.closest('form').find('input[name="_token"]').val();
 		redactor.redactor({
-			minHeight: 200,
+			minHeight: '200px',
+			fileUpload: redactorUpload + '?_token=' + token,
 			imageUpload: redactorUpload + '?_token=' + token,
-			imageUploadCallback: function(image, json) {}
+			imageResizable: true,
+			plugins: ['table', 'fontcolor', 'fontsize', 'alignment', 'counter']
 		});
 	}
 	

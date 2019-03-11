@@ -34,10 +34,17 @@
   text-transform: initial; }
 
 .sidebar .logo a.logo-mini {
-  opacity: 1; }
+  opacity: 1;
+  margin-left: 15px; }
 
 .sidebar .user .info > a {
   line-height: 24px; }
+
+.btn.btn-icon, .navbar .navbar-nav > a.btn.btn-icon {
+  height: 28px;
+  min-width: 28px; }
+  .btn.btn-icon:not(.btn-footer) i, .btn.btn-icon:not(.btn-footer) .fa, .btn.btn-icon:not(.btn-footer) .fas, .btn.btn-icon:not(.btn-footer) .far, .btn.btn-icon:not(.btn-footer) .fal, .btn.btn-icon:not(.btn-footer) .fab, .btn.btn-icon:not(.btn-footer) .nc-icon, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) i, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fa, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fas, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .far, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fal, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fab, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .nc-icon {
+    transform: translate(-12px, -8px); }
 
 /*# sourceMappingURL=stampede-sass.css.map */
 

@@ -10,6 +10,7 @@ use App\Option;
 use App\Email;
 use Mail;
 use Carbon;
+use App\PageItem;
 
 class General extends Mail
 {	
@@ -119,6 +120,14 @@ class General extends Mail
 		} else {
 			return null;
 		}
-				
+	}
+
+	public function pageItems($slug = "")
+	{
+		if ($slug == "") {
+			return PageItem::get();
+		} else {
+			return PageItem::where('slug', $slug)->get();
+		}
 	}
 }

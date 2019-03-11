@@ -11,9 +11,20 @@ class Page extends BaseModel
     protected $fillable = [
     	'name',
         'slug',
-        'published',
-        'page_category_id',
+        'value',
+        'title',
+        'blurb',
+        'description',
+        'button_caption',
+        'button_link',
+        'image',
+        'video',
+        'yt_video',
         'content',
+        'icon_type',
+        'icon_value',
+        'json_data',
+        'published',
     	];
     
     public function pageCategory()
@@ -23,11 +34,20 @@ class Page extends BaseModel
 
     public function seo()
     {
-        return $this->morphMany('App\Seo', 'seoable');
+        return $this->morphOne('App\Seo', 'seoable');
     }
     
     public function activities()
     {
         return $this->morphMany('App\Activity', 'loggable');
     }
+
+    public function image()
+	{
+		return $this->hasOne('App\Page', 'image');
+    }
+    public function video()
+	{
+		return $this->hasOne('App\Page', 'video');
+	}
 }

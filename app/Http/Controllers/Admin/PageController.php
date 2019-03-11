@@ -10,6 +10,7 @@ use App\Http\Requests\PageRequest;
 use Acme\Facades\Activity;
 use Acme\Facades\General;
 use App\Page;
+use App\PageItem;
 use App\PageCategory;
 use App\Seo;
 
@@ -20,21 +21,16 @@ class PageController extends Controller
         $this->middleware('admin');
     }
     
-    public function index(Request $request)
+    public function index(Request $request, $slug)
     {
-        if ($name = $request->name) {
-            $data = Page::where('name', 'LIKE', '%' . $name . '%')->paginate(25);
-        } else {
-            $data = Page::paginate(25);
-        }
-        $pagination = $data->appends($request->except('page'))->links();
+        $data = Page::where('slug', $slug)->first();
 
-        return view('admin/pages/index')
+        return view('admin/pages/' . $slug . '/index')
             ->with('title', 'Pages')
-            ->with('menu', 'pages')
-            ->with('keyword', $request->name)
-            ->with('data', $data)
-            ->with('pagination', $pagination);
+            ->with('menu', 'pages-' . $slug)
+            ->with('slug', $slug)
+            ->with('seo', @$data->seo()->first())
+            ->with('data', @$data);
     }
 
     public function create()
@@ -78,17 +74,21 @@ class PageController extends Controller
             ->with('data', Page::findOrFail($id));
     }
     
-    public function edit($id)
+    public function edit($slug, $section)
     {
-        $data = Page::findOrFail($id);
-        $seo = $data->seo()->first();
-
-        return view('admin/pages/edit')
+		$page = Page::where('slug', $slug)->first();
+		$data = Page::where('slug', $section)->first();
+		$menu = 'pages-';
+		$view = '';
+		foreach(explode("-", $section) as $key => $dir) {
+			if ($key == 0) $menu .= $dir;
+			$view .= ('/' . $dir); 
+		}
+		return view('admin/pages/' . $view . '/edit')
             ->with('title', 'Edit page')
-            ->with('menu', 'pages')
-            ->with('data', $data)
-            ->with('seo', $seo)
-            ->with('categories', PageCategory::lists('name','id'));
+            ->with('menu', $menu)
+            ->with('page', $page)
+            ->with('data', $data);
     }
 
     public function update(PageRequest $request, $id)
@@ -97,8 +97,8 @@ class PageController extends Controller
         $page = Page::findOrFail($id);
         $page->update($input);
 
-        // $log = 'edits a page "' . $page->name . '"';
-        // Activity::create($log);
+        $log = 'edited the page "' . $page->slug . '"';
+        Activity::create($log);
 
         $response = [
             'notifTitle'=>'Save successful.',
@@ -109,7 +109,7 @@ class PageController extends Controller
 
     public function seo(Request $request)
     {
-        $input = $request->all();
+		$input = $request->all();
 
         $data = Page::findOrFail($input['seoable_id']);
         $seo = Seo::whereSeoable_id($input['seoable_id'])->whereSeoable_type($input['seoable_type'])->first();
@@ -119,7 +119,12 @@ class PageController extends Controller
         $seo->title = $input['title'];
         $seo->description = $input['description'];
         $seo->image = $input['image'];
-        $data->seo()->save($seo);
+        $seo->seoable_id = $input['seoable_id'];
+        $seo->seoable_type = $input['seoable_type'];
+        $seo->save();
+
+        $log = 'edited the seo of page "' . $data->slug . '"';
+        Activity::create($log);
 
         $response = [
             'notifTitle'=>'SEO Save successful.',
@@ -135,10 +140,10 @@ class PageController extends Controller
         $data = Page::whereIn('id', $input['ids'])->get();
         $names = [];
         foreach ($data as $d) {
-            $names[] = $d->name;
+            $names[] = $d->slug;
         }
-        // $log = 'deletes a new page "' . implode(', ', $names) . '"';
-        // Activity::create($log);
+        $log = 'deleted a page "' . implode(', ', $names) . '"';
+        Activity::create($log);
 
         Page::destroy($input['ids']);
 
@@ -149,8 +154,153 @@ class PageController extends Controller
         ];
 
         return response()->json($response);
+	}
+	
+	public function storeItem(Request $request, $slug)
+	{
+		$input = $request->all();
+		$input['slug'] = $slug;
+		$data = PageItem::create($input);
+		$response['data'] = $data;
+		$response['message'] = 'Save successful';
+        $status = 200;
+        
+        $log = 'created a new "' . $data->slug . '" item';
+        Activity::create($log);
+		
+		return response($response, $status);
+	}
+	public function storeItemFromPage(PageRequest $request, $section, $slug)
+    {
+		$sectionSlugs = [];
+		$c_slug = "";
+		foreach(explode("-", $section) as $key => $dir) {
+			if ($key > 0) $c_slug .= '-';
+			$c_slug .= $dir; 
+			array_push($sectionSlugs, $c_slug);
+		}
+		
+		$input = $request->all();
+		if (@$input['icon_type'] == 'font-awesome') {
+			$input['value'] = $input['icon_font_awesome'];
+			$input['image'] = null;
+		}
+		if (@$input['icon_type'] == 'image') {
+			$input['image'] = $input['icon_image'];
+			$input['value'] = $input['icon_type'];
+		}
+		$input['slug'] = $slug;
+        $page = PageItem::create($input);
+        
+        $log = 'created a new "' . $page->slug . '" item';
+        Activity::create($log);
+
+        $response = [
+            'notifTitle'=>'Save successful.',
+            'resetForm'=>true,
+            'redirect'=>route('adminPagesEdit', [$sectionSlugs[count($sectionSlugs)-2], $sectionSlugs[count($sectionSlugs)-1]])
+        ];
+
+        return response()->json($response);
+    }
+	public function deleteItem(Request $request)
+	{
+		$input = $request->all();
+		PageItem::destroy($input['id']);
+		$response['message'] = 'Delete successful';
+        $status = 200;
+        
+        $log = 'deleted a "' . $page->slug . '" item';
+        Activity::create($log);
+		
+		return response($response, $status);
+	}
+	public function updateItem(Request $request)
+	{
+		$input = $request->all();
+		$data = PageItem::findOrFail($input['id']);
+        $data->update($input);
+
+        $log = 'edited a "' . $page->slug . '" item';
+        Activity::create($log);
+        
+		$response['data'] = $data;
+		$response['message'] = 'Save successful';
+		$status = 200;
+		
+		return response($response, $status);
+	}
+	public function updateItemFromPage(PageRequest $request, $id)
+    {
+		$input = $request->all();
+		if (@$input['icon_type'] == 'font-awesome') {
+			$input['value'] = $input['icon_font_awesome'];
+			$input['image'] = null;
+		}
+		if (@$input['icon_type'] == 'image') {
+			$input['image'] = $input['icon_image'];
+			$input['value'] = $input['icon_type'];
+		}
+        $page = PageItem::findOrFail($id);
+        $page->update($input);
+
+        $log = 'edited a "' . $page->slug . '" item';
+        Activity::create($log);
+
+        $response = [
+            'notifTitle'=>'Save successful.',
+        ];
+
+        return response()->json($response);
+    }
+	public function editItem(Request $request, $slug, $id)
+	{
+		$data = PageItem::findOrFail($id);
+		$menu = 'pages-';
+		$view = '';
+		foreach(explode("-", $slug) as $key => $dir) {
+			if ($key == 0) $menu .= $dir;
+			$view .= ('/' . $dir); 
+		}
+		return view('admin/pages/' . $view . '/items/edit')
+            ->with('title', 'Edit page')
+            ->with('menu', $menu)
+            ->with('slug', $slug)
+            ->with('data', $data);
+	}
+	public function createItem(Request $request, $slug)
+	{
+		$menu = 'pages-';
+		$view = '';
+		foreach(explode("-", $slug) as $key => $dir) {
+			if ($key == 0) $menu .= $dir;
+			$view .= ('/' . $dir); 
+		}
+		return view('admin/pages/' . $view . '/items/create')
+            ->with('title', 'Edit page')
+            ->with('menu', $menu)
+            ->with('slug', $slug);
     }
     
+    public function sortItem(Request $request, $slug)
+    {
+        $input = $request->all();
+        $counter = 1;
+        foreach (@$input['general'] as $o) {
+            $update['order'] = $counter;
+            $permission = Page::findOrFail($o);
+            $permission->update($update);
+            $counter++;
+        }
+        
+        $log = 'reordered the items from "' . $slug . '"';
+        Activity::create($log);
+
+		$response = [
+			'notifTitle'=>'Reordered successful.',
+        ];
+        return response()->json($response);
+    }
 /** Copy/paste these lines to app\Http\routes.base.php 
 Route::get('admin/pages', array('as'=>'adminPages','uses'=>'Admin\PageController@index'));
 Route::get('admin/pages/create', array('as'=>'adminPagesCreate','uses'=>'Admin\PageController@create'));

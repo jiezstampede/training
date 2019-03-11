@@ -107,41 +107,41 @@ class OptionsTableSeeder extends Seeder
             ]
         );
 
-        DB::table('options')->insert(
-            [
-                'name' => 'Terms Link',
-                'slug' => 'terms-link',
-                'type' => 'text',
-                'permanent' => 0,
-                'value' => '',
-                'asset' => '',
-	            'category' => 'general',
-            ]
-        );
+        // DB::table('options')->insert(
+        //     [
+        //         'name' => 'Terms Link',
+        //         'slug' => 'terms-link',
+        //         'type' => 'text',
+        //         'permanent' => 0,
+        //         'value' => '',
+        //         'asset' => '',
+	    //         'category' => 'general',
+        //     ]
+        // );
 
-        DB::table('options')->insert(
-            [
-                'name' => 'Privacy Link',
-                'slug' => 'privacy-link',
-                'type' => 'text',
-                'permanent' => 0,
-                'value' => '',
-                'asset' => '',
-	            'category' => 'general',
-            ]
-        );
+        // DB::table('options')->insert(
+        //     [
+        //         'name' => 'Privacy Link',
+        //         'slug' => 'privacy-link',
+        //         'type' => 'text',
+        //         'permanent' => 0,
+        //         'value' => '',
+        //         'asset' => '',
+	    //         'category' => 'general',
+        //     ]
+        // );
 
-        DB::table('options')->insert(
-            [
-                'name' => 'Unsubscribe Link',
-                'slug' => 'unsubscribe-link',
-                'type' => 'text',
-                'permanent' => 0,
-                'value' => '',
-                'asset' => '',
-	            'category' => 'general',
-            ]
-        );
+        // DB::table('options')->insert(
+        //     [
+        //         'name' => 'Unsubscribe Link',
+        //         'slug' => 'unsubscribe-link',
+        //         'type' => 'text',
+        //         'permanent' => 0,
+        //         'value' => '',
+        //         'asset' => '',
+	    //         'category' => 'general',
+        //     ]
+        // );
 
         DB::table('options')->insert(
             [
@@ -157,18 +157,18 @@ class OptionsTableSeeder extends Seeder
         );
 
         
-        DB::table('options')->insert(
-            [
-                'name' => 'Instagram Feed Token',
-                'slug' => 'instagram-feed-token',
-                'type' => 'text',
-                'permanent' => 0,
-                'value' => '',
-                'asset' => '',
-                'category' => 'general',  
-                'help' => 'The IG token that will be used for IG feed extraction <br/><a href="https://public.3.basecamp.com/p/qmRMy9T4mjNyTrDQGXQ7UbhU">Click here for more info</a>'
-            ]
-        );
+        // DB::table('options')->insert(
+        //     [
+        //         'name' => 'Instagram Feed Token',
+        //         'slug' => 'instagram-feed-token',
+        //         'type' => 'text',
+        //         'permanent' => 0,
+        //         'value' => '',
+        //         'asset' => '',
+        //         'category' => 'general',  
+        //         'help' => 'The IG token that will be used for IG feed extraction <br/><a href="https://public.3.basecamp.com/p/qmRMy9T4mjNyTrDQGXQ7UbhU">Click here for more info</a>'
+        //     ]
+        // );
 
          DB::table('options')->insert(
             [
@@ -292,14 +292,14 @@ class OptionsTableSeeder extends Seeder
 
         DB::table('options')->insert(
             [
-                'name' => 'Receiver Email',
-                'slug' => 'receiver-email',
+                'name' => 'Receiver Emails (comma-separated)',
+                'slug' => 'receiver-emails',
                 'type' => 'text',
                 'permanent' => 1,
                 'value' => 'contact@sumofy.me',
                 'asset' => '',
                 'category' => 'email',  
-                'help' => 'The email address that will receive inquiries in contact-us'
+                'help' => 'The email addresses that will receive inquiries in contact-us.'
             ]
         );
 

@@ -101,955 +101,6 @@ table.dataTable{clear:both;margin-top:6px !important;margin-bottom:6px !importan
 .toggle-off.btn-xs { padding-left: 12px; }
 
 
-/*
-	Icon font
-*/
-@font-face {
-  font-family: 'RedactorFont';
-  src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype'), url(data:application/font-woff;charset=utf-8;base64,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) format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-/*
-	Box
-*/
-.redactor-box {
-  position: relative;
-  overflow: visible;
-  margin-bottom: 24px;
-}
-.redactor-box textarea {
-  display: block;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow: auto;
-  outline: none;
-  border: none;
-  background-color: #111;
-  box-shadow: none;
-  color: #ccc;
-  font-size: 13px;
-  font-family: Menlo, Monaco, monospace, sans-serif !important;
-  resize: none;
-}
-.redactor-box textarea:focus {
-  outline: none;
-}
-.redactor-editor,
-.redactor-box {
-  background: #fff;
-}
-/*
-	Z-index setup
-*/
-.redactor-editor,
-.redactor-box,
-.redactor-box textarea {
-  z-index: auto;
-}
-.redactor-box-fullscreen {
-  z-index: 1051;
-}
-.redactor-toolbar {
-  z-index: 100;
-}
-.redactor-dropdown {
-  z-index: 1052;
-}
-#redactor-modal-overlay,
-#redactor-modal-box,
-#redactor-modal {
-  z-index: 1053;
-}
-/*
-	Fullscreen
-*/
-body .redactor-box-fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-/*
-	Utils
-*/
-.redactor-scrollbar-measure {
-  position: absolute;
-  top: -9999px;
-  width: 50px;
-  height: 50px;
-  overflow: scroll;
-}
-/*
-	Editor
-*/
-.redactor-editor {
-  position: relative;
-  overflow: auto;
-  margin: 0 !important;
-  padding: 20px;
-  min-height: 80px;
-  outline: none;
-  white-space: normal;
-  border: 1px solid #eee;
-  font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
-  font-size: 14px;
-  line-height: 1.6em;
-}
-.redactor-editor:focus {
-  outline: none;
-}
-.toolbar-fixed-box + .redactor-editor {
-  padding-top: 32px !important;
-}
-/*
-	Placeholder
-*/
-.redactor-placeholder:after {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  content: attr(placeholder);
-  display: block;
-  /* For Firefox */
-  color: #999 !important;
-  font-weight: normal !important;
-}
-/*
-	Toolbar
-*/
-.redactor-toolbar {
-  position: relative;
-  top: 0;
-  left: 0;
-  margin: 0 !important;
-  padding: 0 !important;
-  list-style: none !important;
-  font-size: 14px !important;
-  line-height: 1 !important;
-  background: #fff;
-  border: none;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-.redactor-toolbar:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.redactor-toolbar.redactor-toolbar-overflow {
-  overflow-y: auto;
-  height: 29px;
-  white-space: nowrap;
-}
-.redactor-toolbar.redactor-toolbar-external {
-  z-index: 999;
-  box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.redactor-toolbar li {
-  vertical-align: top;
-  display: inline-block;
-  margin: 0 !important;
-  padding: 0 !important;
-  outline: none;
-  list-style: none !important;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
-.redactor-toolbar li a {
-  display: block;
-  color: #333;
-  text-align: center;
-  padding: 9px 10px;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  cursor: pointer;
-  zoom: 1;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
-.redactor-toolbar li a:hover {
-  outline: none;
-  background-color: #1f78d8;
-  color: #fff;
-}
-.redactor-toolbar li a:hover i:before {
-  color: #fff;
-}
-.redactor-toolbar li a:active,
-.redactor-toolbar li a.redactor-act {
-  outline: none;
-  background-color: #ccc;
-  color: #444;
-}
-.redactor-toolbar li a.redactor-btn-image {
-  width: 14px;
-  height: 14px;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-.redactor-toolbar li a.fa-redactor-btn {
-  display: inline-block;
-  padding: 9px 10px 8px 10px;
-  line-height: 1;
-}
-.redactor-toolbar li a.redactor-button-disabled {
-  filter: alpha(opacity=30);
-  -moz-opacity: 0.3;
-  opacity: 0.3;
-}
-.redactor-toolbar li a.redactor-button-disabled:hover {
-  color: #333;
-  outline: none;
-  background-color: transparent !important;
-  cursor: default;
-}
-.redactor-toolbar li a.redactor-button-focus {
-  color: #fff;
-  background: #000;
-}
-/*
-	CodeMirror
-*/
-.redactor-box .CodeMirror {
-  display: none;
-}
-/*
-	Icons
-*/
-.re-icon {
-  font-family: 'RedactorFont';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.re-icon i:before {
-  position: relative;
-  font-size: 14px;
-}
-.re-video:before {
-  content: "\e600";
-}
-.re-unorderedlist:before {
-  content: "\e601";
-}
-.re-undo:before {
-  content: "\e602";
-}
-.re-underline:before {
-  content: "\e603";
-}
-.re-textdirection:before {
-  content: "\e604";
-}
-.re-fontcolor:before {
-  content: "\e605";
-}
-.re-table:before {
-  content: "\e606";
-}
-.re-redo:before {
-  content: "\e607";
-}
-.re-quote:before {
-  content: "\e608";
-}
-.re-outdent:before {
-  content: "\e609";
-}
-.re-orderedlist:before {
-  content: "\e60a";
-}
-.re-link:before {
-  content: "\e60b";
-}
-.re-horizontalrule:before {
-  content: "\e60c";
-}
-.re-italic:before {
-  content: "\e60d";
-}
-.re-indent:before {
-  content: "\e60e";
-}
-.re-image:before {
-  content: "\e60f";
-}
-.re-fullscreen:before {
-  content: "\e610";
-}
-.re-normalscreen:before {
-  content: "\e611";
-}
-.re-formatting:before {
-  content: "\e612";
-}
-.re-fontsize:before {
-  content: "\e613";
-}
-.re-fontfamily:before {
-  content: "\e614";
-}
-.re-deleted:before {
-  content: "\e615";
-}
-.re-html:before {
-  content: "\e616";
-}
-.re-clips:before {
-  content: "\e617";
-}
-.re-bold:before {
-  content: "\e618";
-}
-.re-backcolor:before {
-  content: "\e619";
-}
-.re-file:before {
-  content: "\e61a";
-}
-.re-alignright:before {
-  content: "\e61b";
-}
-.re-alignment:before,
-.re-alignleft:before {
-  content: "\e61c";
-}
-.re-alignjustify:before {
-  content: "\e61d";
-}
-.re-aligncenter:before {
-  content: "\e61e";
-}
-.re-gallery:before {
-  content: "\e61f";
-}
-/*
-	Toolbar tooltip
-*/
-.redactor-toolbar-tooltip {
-  position: absolute;
-  z-index: 1054;
-  text-align: center;
-  top: 0;
-  left: 0;
-  background: #000;
-  color: #fff;
-  padding: 5px 8px;
-  line-height: 1;
-  font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
-  font-size: 12px;
-  border-radius: 2px;
-}
-/*
-	Dropdown
-*/
-.redactor-dropdown {
-  position: absolute;
-  top: 28px;
-  left: 0;
-  padding: 0;
-  min-width: 220px;
-  max-height: 254px;
-  overflow: auto;
-  background-color: #fff;
-  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.25);
-  font-size: 14px;
-  font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
-  line-height: 1.6em;
-}
-.redactor-dropdown a {
-  display: block;
-  padding: 10px 15px;
-  color: #000;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-}
-.redactor-dropdown a:last-child {
-  border-bottom: none;
-}
-.redactor-dropdown a:hover {
-  background-color: #1f78d8;
-  color: #fff !important;
-  text-decoration: none;
-}
-.redactor-dropdown a.selected {
-  background-color: #000;
-  color: #fff;
-}
-.redactor-dropdown a.redactor-dropdown-link-inactive,
-.redactor-dropdown a.redactor-dropdown-link-inactive:hover {
-  background: none;
-  cursor: default;
-  color: #000 !important;
-  filter: alpha(opacity=40);
-  -moz-opacity: 0.4;
-  opacity: 0.4;
-}
-.redactor-dropdown a.redactor-dropdown-link-selected {
-  color: #fff;
-  background: #000;
-}
-/*
-	IMAGE BOX
-*/
-#redactor-image-box {
-  position: relative;
-  max-width: 100%;
-  display: inline-block;
-  line-height: 0;
-  outline: 1px dashed rgba(0, 0, 0, 0.6);
-}
-#redactor-image-editter {
-  position: absolute;
-  z-index: 5;
-  top: 50%;
-  left: 50%;
-  margin-top: -11px;
-  margin-left: -18px;
-  line-height: 1;
-  background-color: #000;
-  color: #fff;
-  font-size: 11px;
-  padding: 7px 10px;
-  cursor: pointer;
-}
-#redactor-image-resizer {
-  position: absolute;
-  z-index: 2;
-  line-height: 1;
-  cursor: nw-resize;
-  bottom: -4px;
-  right: -5px;
-  border: 1px solid #fff;
-  background-color: #000;
-  width: 8px;
-  height: 8px;
-}
-/*
-	LINK TOOLTIP
-*/
-.redactor-link-tooltip {
-  position: absolute;
-  z-index: 99;
-  padding: 10px;
-  line-height: 1;
-  display: inline-block;
-  background-color: #000;
-  color: #555 !important;
-}
-.redactor-link-tooltip,
-.redactor-link-tooltip a {
-  font-size: 12px;
-  font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
-}
-.redactor-link-tooltip a {
-  color: #ccc;
-  margin: 0 5px;
-  text-decoration: none;
-}
-.redactor-link-tooltip a:hover {
-  color: #fff;
-}
-/*
-	DROPAREA
-*/
-#redactor-droparea {
-  position: relative;
-  overflow: hidden;
-  padding: 140px 20px;
-  border: 3px dashed rgba(0, 0, 0, 0.1);
-}
-#redactor-droparea.drag-hover {
-  background: rgba(200, 222, 250, 0.75);
-}
-#redactor-droparea.drag-drop {
-  background: rgba(250, 248, 200, 0.5);
-}
-#redactor-droparea-placeholder {
-  text-align: center;
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.7);
-}
-/*
-	PROGRESS
-*/
-#redactor-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000000;
-  height: 10px;
-}
-#redactor-progress span {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: #3d58a8;
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-  -webkit-animation: progress-bar-stripes 2s linear infinite;
-  -o-animation: progress-bar-stripes 2s linear infinite;
-  animation: progress-bar-stripes 2s linear infinite;
-  background-size: 40px 40px;
-}
-@-webkit-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-@-o-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-@keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-/*
-	MODAL
-*/
-#redactor-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: auto;
-  overflow: auto;
-  width: 100%;
-  height: 100%;
-  background-color: #000 !important;
-  filter: alpha(opacity=30);
-  -moz-opacity: 0.3;
-  opacity: 0.3;
-}
-#redactor-modal-box {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-#redactor-modal {
-  outline: 0;
-  position: relative;
-  margin: auto;
-  margin-bottom: 20px;
-  padding: 0;
-  background: #fff;
-  color: #000;
-  font-size: 14px !important;
-  font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
-  box-shadow: 0 1px 70px rgba(0, 0, 0, 0.5);
-}
-#redactor-modal header {
-  padding: 30px 40px 5px 40px;
-  font-size: 18px;
-  font-weight: bold;
-}
-#redactor-modal section {
-  padding: 30px 40px 50px 40px;
-}
-#redactor-modal label {
-  display: block;
-  float: none !important;
-  margin: 15px 0 3px 0 !important;
-  padding: 0;
-}
-#redactor-modal input[type="radio"],
-#redactor-modal input[type="checkbox"] {
-  position: relative;
-  top: -1px;
-}
-#redactor-modal select {
-  width: 100%;
-}
-#redactor-modal input[type="text"],
-#redactor-modal input[type="password"],
-#redactor-modal input[type="email"],
-#redactor-modal input[type="url"],
-#redactor-modal textarea {
-  position: relative;
-  z-index: 2;
-  margin: 0;
-  padding: 5px 4px;
-  height: 28px;
-  border: 1px solid #ccc;
-  border-radius: 1px;
-  background-color: white;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
-  color: #333;
-  width: 100%;
-  font-size: 14px;
-  font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
-  -moz-transition: border 0.3s ease-in;
-  transition: border 0.3s ease-in;
-}
-#redactor-modal input[type="text"]:focus,
-#redactor-modal input[type="password"]:focus,
-#redactor-modal input[type="email"]:focus,
-#redactor-modal input[type="url"]:focus,
-#redactor-modal textarea:focus {
-  outline: none;
-  border-color: #5ca9e4;
-  box-shadow: 0 0 0 2px rgba(70, 161, 231, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
-}
-#redactor-modal input[type="text"].redactor-input-error,
-#redactor-modal input[type="password"].redactor-input-error,
-#redactor-modal input[type="email"].redactor-input-error,
-#redactor-modal input[type="url"].redactor-input-error,
-#redactor-modal textarea.redactor-input-error {
-  border-color: #e82f2f;
-  box-shadow: 0 0 0 2px rgba(232, 47, 47, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) inset;
-}
-#redactor-modal textarea {
-  display: block;
-  margin-top: 4px;
-  line-height: 1.4em;
-}
-/*
-	Tabs in Modal
-*/
-#redactor-modal-tabber {
-  margin-bottom: 15px;
-  font-size: 12px;
-}
-#redactor-modal-tabber a {
-  border: 1px solid #ddd;
-  line-height: 1;
-  padding: 8px 15px;
-  margin-right: -1px;
-  text-decoration: none;
-  color: #000;
-}
-#redactor-modal-tabber a:hover {
-  background-color: #1f78d8;
-  border-color: #1f78d8;
-  color: #fff;
-}
-#redactor-modal-tabber a.active {
-  cursor: default;
-  background-color: #ddd;
-  border-color: #ddd;
-  color: rgba(0, 0, 0, 0.6);
-}
-/*
-	List in Modal
-*/
-#redactor-modal #redactor-modal-list {
-  margin-left: 0;
-  padding-left: 0;
-  list-style: none;
-  max-height: 250px;
-  overflow-x: auto;
-}
-#redactor-modal #redactor-modal-list li {
-  border-bottom: 1px solid #ddd;
-}
-#redactor-modal #redactor-modal-list li:last-child {
-  border-bottom: none;
-}
-#redactor-modal #redactor-modal-list a {
-  padding: 10px 5px;
-  color: #000;
-  text-decoration: none;
-  font-size: 13px;
-  display: block;
-  position: relative;
-}
-#redactor-modal #redactor-modal-list a:hover {
-  background-color: #eee;
-}
-#redactor-modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  text-align: right;
-  color: #bbb;
-  font-size: 30px;
-  font-weight: 300;
-  cursor: pointer;
-  -webkit-appearance: none;
-  padding: 0;
-  border: 0;
-  background: 0;
-  outline: none;
-}
-#redactor-modal-close:hover {
-  color: #000;
-}
-#redactor-modal footer button {
-  position: relative;
-  width: 100%;
-  padding: 14px 16px;
-  margin: 0;
-  outline: none;
-  border: none;
-  background-color: #ddd;
-  color: #000;
-  text-align: center;
-  text-decoration: none;
-  font-weight: normal;
-  font-size: 12px;
-  font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
-  line-height: 1;
-  cursor: pointer;
-}
-#redactor-modal footer button:hover {
-  color: #777;
-  background: none;
-  background: #bbb;
-  text-decoration: none;
-}
-#redactor-modal footer button.redactor-modal-delete-btn {
-  background: none;
-  color: #fff;
-  background-color: #b52525;
-}
-#redactor-modal footer button.redactor-modal-delete-btn:hover {
-  color: rgba(255, 255, 255, 0.6);
-  background-color: #881b1b;
-}
-#redactor-modal footer button.redactor-modal-action-btn {
-  background: none;
-  color: #fff;
-  background-color: #2461b5;
-}
-#redactor-modal footer button.redactor-modal-action-btn:hover {
-  color: rgba(255, 255, 255, 0.6);
-  background-color: #1a4580;
-}
-/*
-	##############################################
-
-	DROPDOWN FORMATTING
-
-	##############################################
-*/
-.redactor-dropdown .redactor-formatting-blockquote {
-  color: rgba(0, 0, 0, 0.4);
-  font-style: italic;
-}
-.redactor-dropdown .redactor-formatting-pre {
-  font-family: monospace, sans-serif;
-}
-.redactor-dropdown .redactor-formatting-h1 {
-  font-size: 36px;
-  line-height: 36px;
-  font-weight: bold;
-}
-.redactor-dropdown .redactor-formatting-h2 {
-  font-size: 24px;
-  line-height: 36px;
-  font-weight: bold;
-}
-.redactor-dropdown .redactor-formatting-h3 {
-  font-size: 21px;
-  line-height: 30px;
-  font-weight: bold;
-}
-.redactor-dropdown .redactor-formatting-h4 {
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: bold;
-}
-.redactor-dropdown .redactor-formatting-h5 {
-  font-size: 16px;
-  line-height: 23px;
-  font-weight: bold;
-}
-/*
-	##############################################
-
-	 CONTENT STYLES
-
-	##############################################
-*/
-.redactor-editor code,
-.redactor-editor pre {
-  font-family: Menlo, Monaco, monospace, sans-serif !important;
-  cursor: text;
-}
-.redactor-editor div,
-.redactor-editor p,
-.redactor-editor ul,
-.redactor-editor ol,
-.redactor-editor table,
-.redactor-editor dl,
-.redactor-editor blockquote,
-.redactor-editor pre {
-  font-size: 14px;
-  line-height: 1.6em;
-}
-.redactor-editor a {
-  color: #15c;
-  text-decoration: underline;
-}
-.redactor-editor object,
-.redactor-editor embed,
-.redactor-editor video,
-.redactor-editor img {
-  max-width: 100%;
-  width: auto;
-}
-.redactor-editor video,
-.redactor-editor img {
-  height: auto;
-}
-.redactor-editor div,
-.redactor-editor p,
-.redactor-editor ul,
-.redactor-editor ol,
-.redactor-editor table,
-.redactor-editor dl,
-.redactor-editor figure,
-.redactor-editor blockquote,
-.redactor-editor pre {
-  margin: 0;
-  margin-bottom: 15px;
-  border: none;
-  background: none;
-  box-shadow: none;
-}
-.redactor-editor iframe,
-.redactor-editor object,
-.redactor-editor hr {
-  margin-bottom: 15px;
-}
-.redactor-editor blockquote {
-  margin-left: 1.6em !important;
-  padding: 0;
-  text-align: left;
-  color: #777;
-  font-style: italic;
-}
-.redactor-editor blockquote:before,
-.redactor-editor blockquote:after {
-  content: '';
-}
-.redactor-editor ul,
-.redactor-editor ol {
-  padding-left: 2em;
-}
-.redactor-editor ul ul,
-.redactor-editor ol ol,
-.redactor-editor ul ol,
-.redactor-editor ol ul {
-  margin: 2px;
-  padding: 0;
-  padding-left: 2em;
-  border: none;
-}
-.redactor-editor ol ol li {
-  list-style-type: lower-alpha;
-}
-.redactor-editor ol ol ol li {
-  list-style-type: lower-roman;
-}
-.redactor-editor dl dt {
-  font-weight: bold;
-}
-.redactor-editor dd {
-  margin-left: 1em;
-}
-.redactor-editor table {
-  border-collapse: collapse;
-  font-size: 1em;
-  width: 100%;
-}
-.redactor-editor table td,
-.redactor-editor table th {
-  padding: 5px;
-  border: 1px solid #ddd;
-  vertical-align: top;
-}
-.redactor-editor table thead td,
-.redactor-editor table th {
-  font-weight: bold;
-  border-bottom-color: #888;
-}
-.redactor-editor code {
-  background-color: #d8d7d7;
-}
-.redactor-editor pre {
-  padding: 1em;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  background: #f8f8f8;
-  font-size: 90%;
-}
-.redactor-editor hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-}
-.redactor-editor h1,
-.redactor-editor h2,
-.redactor-editor h3,
-.redactor-editor h4,
-.redactor-editor h5,
-.redactor-editor h6 {
-  font-weight: bold;
-  color: #000;
-  padding: 0;
-  background: none;
-  text-rendering: optimizeLegibility;
-  margin: 0 0 .5em 0;
-}
-.redactor-editor h1,
-.redactor-editor h2,
-.redactor-editor h3,
-.redactor-editor h4 {
-  line-height: 1.3;
-}
-.redactor-editor h1 {
-  font-size: 36px;
-}
-.redactor-editor h2 {
-  font-size: 24px;
-  margin-bottom: .7em;
-}
-.redactor-editor h3 {
-  font-size: 21px;
-}
-.redactor-editor h4 {
-  font-size: 18px;
-}
-.redactor-editor h5 {
-  font-size: 16px;
-}
-.redactor-editor h6 {
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
 body.stop-scrolling {
   height: 100%;
   overflow: hidden; }
@@ -1984,10 +1035,6 @@ body.stop-scrolling {
     transform: translateY(145%); } }
 
 @charset "UTF-8";.fancybox-enabled{overflow:hidden}.fancybox-enabled body{overflow:visible;height:100%}.fancybox-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:99993;-webkit-backface-visibility:hidden;backface-visibility:hidden}.fancybox-container~.fancybox-container{z-index:99992}.fancybox-bg{position:absolute;top:0;right:0;bottom:0;left:0;background:#0f0f11;opacity:0;transition-timing-function:cubic-bezier(.55,.06,.68,.19);-webkit-backface-visibility:hidden;backface-visibility:hidden}.fancybox-container--ready .fancybox-bg{opacity:.87;transition-timing-function:cubic-bezier(.22,.61,.36,1)}.fancybox-controls{position:absolute;top:0;left:0;right:0;text-align:center;opacity:0;z-index:99994;transition:opacity .2s;pointer-events:none;-webkit-backface-visibility:hidden;backface-visibility:hidden;direction:ltr}.fancybox-show-controls .fancybox-controls{opacity:1}.fancybox-infobar{display:none}.fancybox-show-infobar .fancybox-infobar{display:inline-block;pointer-events:all}.fancybox-infobar__body{display:inline-block;width:70px;line-height:44px;font-size:13px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;text-align:center;color:#ddd;background-color:rgba(30,30,30,.7);pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:subpixel-antialiased}.fancybox-buttons{position:absolute;top:0;right:0;display:none;pointer-events:all}.fancybox-show-buttons .fancybox-buttons{display:block}.fancybox-slider-wrap{overflow:hidden;direction:ltr}.fancybox-slider,.fancybox-slider-wrap{position:absolute;top:0;left:0;bottom:0;right:0;padding:0;margin:0;z-index:99993;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-tap-highlight-color:transparent}.fancybox-slide{position:absolute;top:0;left:0;width:100%;height:100%;margin:0;padding:0;overflow:auto;outline:none;white-space:normal;box-sizing:border-box;text-align:center;z-index:99994;-webkit-overflow-scrolling:touch}.fancybox-slide:before{content:"";height:100%;width:0}.fancybox-slide:before,.fancybox-slide>*{display:inline-block;vertical-align:middle}.fancybox-slide>*{position:relative;padding:24px;margin:44px 0;border-width:0;text-align:left;background-color:#fff;overflow:auto;box-sizing:border-box}.fancybox-slide--image{overflow:hidden}.fancybox-slide--image:before{display:none}.fancybox-content{display:inline-block;position:relative;margin:44px auto;padding:0;border:0;width:80%;height:calc(100% - 88px);vertical-align:middle;line-height:normal;text-align:left;white-space:normal;outline:none;font-size:16px;font-family:Arial,sans-serif;box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-overflow-scrolling:touch}.fancybox-iframe{display:block;margin:0;padding:0;border:0;width:100%;height:100%;background:#fff}.fancybox-slide--video .fancybox-content,.fancybox-slide--video .fancybox-iframe{background:transparent}.fancybox-placeholder{z-index:99995;background:transparent;cursor:default;overflow:visible;-webkit-transform-origin:top left;transform-origin:top left;background-size:100% 100%;background-repeat:no-repeat;-webkit-backface-visibility:hidden;backface-visibility:hidden}.fancybox-image,.fancybox-placeholder,.fancybox-spaceball{position:absolute;top:0;left:0;margin:0;padding:0;border:0}.fancybox-image,.fancybox-spaceball{width:100%;height:100%;max-width:none;max-height:none;background:transparent;background-size:100% 100%}.fancybox-controls--canzoomOut .fancybox-placeholder{cursor:zoom-out}.fancybox-controls--canzoomIn .fancybox-placeholder{cursor:zoom-in}.fancybox-controls--canGrab .fancybox-placeholder{cursor:-webkit-grab;cursor:grab}.fancybox-controls--isGrabbing .fancybox-placeholder{cursor:-webkit-grabbing;cursor:grabbing}.fancybox-spaceball{z-index:1}.fancybox-tmp{position:absolute;top:-9999px;left:-9999px;visibility:hidden}.fancybox-error{position:absolute;margin:0;padding:40px;top:50%;left:50%;width:380px;max-width:100%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background:#fff;cursor:default}.fancybox-error p{margin:0;padding:0;color:#444;font:16px/20px Helvetica Neue,Helvetica,Arial,sans-serif}.fancybox-close-small{position:absolute;top:0;right:0;width:44px;height:44px;padding:0;margin:0;border:0;border-radius:0;outline:none;background:transparent;z-index:10;cursor:pointer}.fancybox-close-small:after{content:"×";position:absolute;top:5px;right:5px;width:30px;height:30px;font:20px/30px Arial,Helvetica Neue,Helvetica,sans-serif;color:#888;font-weight:300;text-align:center;border-radius:50%;border-width:0;background:#fff;transition:background .2s;box-sizing:border-box;z-index:2}.fancybox-close-small:focus:after{outline:1px dotted #888}.fancybox-slide--video .fancybox-close-small{top:-36px;right:-36px;background:transparent}.fancybox-close-small:hover:after{color:#555;background:#eee}.fancybox-caption-wrap{position:absolute;bottom:0;left:0;right:0;padding:60px 30px 0;z-index:99998;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box;background:linear-gradient(180deg,transparent 0,rgba(0,0,0,.1) 20%,rgba(0,0,0,.2) 40%,rgba(0,0,0,.6) 80%,rgba(0,0,0,.8));opacity:0;transition:opacity .2s;pointer-events:none}.fancybox-show-caption .fancybox-caption-wrap{opacity:1}.fancybox-caption{padding:30px 0;border-top:1px solid hsla(0,0%,100%,.4);font-size:14px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;color:#fff;line-height:20px;-webkit-text-size-adjust:none}.fancybox-caption a,.fancybox-caption button{pointer-events:all}.fancybox-caption a{color:#fff;text-decoration:underline}.fancybox-button{display:inline-block;position:relative;width:44px;height:44px;line-height:44px;margin:0;padding:0;border:0;border-radius:0;cursor:pointer;background:transparent;color:#fff;box-sizing:border-box;vertical-align:top;outline:none}.fancybox-button--disabled{cursor:default;pointer-events:none}.fancybox-button,.fancybox-infobar__body{background:rgba(30,30,30,.6)}.fancybox-button:hover{background:rgba(0,0,0,.8)}.fancybox-button:after,.fancybox-button:before{content:"";pointer-events:none;position:absolute;border-color:#fff;background-color:currentColor;color:currentColor;opacity:.9;box-sizing:border-box;display:inline-block}.fancybox-button--disabled:after,.fancybox-button--disabled:before{opacity:.5}.fancybox-button--left:after{left:20px;-webkit-transform:rotate(-135deg);transform:rotate(-135deg)}.fancybox-button--left:after,.fancybox-button--right:after{top:18px;width:6px;height:6px;background:transparent;border-top:2px solid currentColor;border-right:2px solid currentColor}.fancybox-button--right:after{right:20px;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.fancybox-button--left{border-bottom-left-radius:5px}.fancybox-button--right{border-bottom-right-radius:5px}.fancybox-button--close{float:right}.fancybox-button--close:after,.fancybox-button--close:before{content:"";display:inline-block;position:absolute;height:2px;width:16px;top:calc(50% - 1px);left:calc(50% - 8px)}.fancybox-button--close:before{-webkit-transform:rotate(45deg);transform:rotate(45deg)}.fancybox-button--close:after{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.fancybox-loading{border:6px solid hsla(0,0%,39%,.4);border-top:6px solid hsla(0,0%,100%,.6);border-radius:100%;height:50px;width:50px;-webkit-animation:a .8s infinite linear;animation:a .8s infinite linear;background:transparent;position:absolute;top:50%;left:50%;margin-top:-25px;margin-left:-25px;z-index:99999}@-webkit-keyframes a{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes a{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@media (max-width:800px){.fancybox-controls{text-align:left}.fancybox-button--left,.fancybox-button--right,.fancybox-buttons button:not(.fancybox-button--close){display:none!important}.fancybox-caption{padding:20px 0;margin:0}}.fancybox-button--fullscreen:before{width:15px;height:11px;left:15px;top:16px;border:2px solid;background:none}.fancybox-button--play:before{top:16px;left:18px;width:0;height:0;border-top:6px inset transparent;border-bottom:6px inset transparent;border-left:10px solid;border-radius:1px;background:transparent}.fancybox-button--pause:before{top:16px;left:18px;width:7px;height:11px;border-style:solid;border-width:0 2px;background:transparent}.fancybox-button--thumbs span{font-size:23px}.fancybox-button--thumbs:before{top:20px;left:21px;width:3px;height:3px;box-shadow:0 -4px 0,-4px -4px 0,4px -4px 0,inset 0 0 0 32px,-4px 0 0,4px 0 0,0 4px 0,-4px 4px 0,4px 4px 0}.fancybox-container--thumbs .fancybox-caption-wrap,.fancybox-container--thumbs .fancybox-controls,.fancybox-container--thumbs .fancybox-slider-wrap{right:220px}.fancybox-thumbs{position:absolute;top:0;right:0;bottom:0;left:auto;width:220px;margin:0;padding:5px 5px 0 0;background:#fff;z-index:99993;word-break:normal;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:transparent;box-sizing:border-box}.fancybox-thumbs>ul{list-style:none;position:absolute;position:relative;width:100%;height:100%;margin:0;padding:0;overflow-x:hidden;overflow-y:auto;font-size:0}.fancybox-thumbs>ul>li{float:left;overflow:hidden;max-width:50%;padding:0;margin:0;width:105px;height:75px;position:relative;cursor:pointer;outline:none;border:5px solid #fff;border-top-width:0;border-right-width:0;-webkit-tap-highlight-color:transparent;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box}li.fancybox-thumbs-loading{background:rgba(0,0,0,.1)}.fancybox-thumbs>ul>li>img{position:absolute;top:0;left:0;min-width:100%;min-height:100%;max-width:none;max-height:none;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.fancybox-thumbs>ul>li:before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;border-radius:2px;border:4px solid #4ea7f9;z-index:99991;opacity:0;transition:all .2s cubic-bezier(.25,.46,.45,.94)}.fancybox-thumbs>ul>li.fancybox-thumbs-active:before{opacity:1}@media (max-width:800px){.fancybox-thumbs{display:none!important}.fancybox-container--thumbs .fancybox-caption-wrap,.fancybox-container--thumbs .fancybox-controls,.fancybox-container--thumbs .fancybox-slider-wrap{right:0}}
-/*!
- * Font Awesome Free 5.5.0 by @fontawesome - https://fontawesome.com
- * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
- */
 .fa,
 .fas,
 .far,
@@ -2134,7 +1181,7 @@ body.stop-scrolling {
   -webkit-transform: scale(1, -1);
           transform: scale(1, -1); }
 
-.fa-flip-horizontal.fa-flip-vertical {
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
   -webkit-transform: scale(-1, -1);
           transform: scale(-1, -1); }
@@ -2143,7 +1190,8 @@ body.stop-scrolling {
 :root .fa-rotate-180,
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
-:root .fa-flip-vertical {
+:root .fa-flip-vertical,
+:root .fa-flip-both {
   -webkit-filter: none;
           filter: none; }
 
@@ -2199,6 +1247,9 @@ readers do not read off random characters that represent icons */
 
 .fa-adn:before {
   content: "\f170"; }
+
+.fa-adobe:before {
+  content: "\f778"; }
 
 .fa-adversal:before {
   content: "\f36a"; }
@@ -2359,6 +1410,9 @@ readers do not read off random characters that represent icons */
 .fa-arrows-alt-v:before {
   content: "\f338"; }
 
+.fa-artstation:before {
+  content: "\f77a"; }
+
 .fa-assistive-listening-systems:before {
   content: "\f2a2"; }
 
@@ -2373,6 +1427,9 @@ readers do not read off random characters that represent icons */
 
 .fa-atlas:before {
   content: "\f558"; }
+
+.fa-atlassian:before {
+  content: "\f77b"; }
 
 .fa-atom:before {
   content: "\f5d2"; }
@@ -2398,11 +1455,20 @@ readers do not read off random characters that represent icons */
 .fa-aws:before {
   content: "\f375"; }
 
+.fa-baby:before {
+  content: "\f77c"; }
+
+.fa-baby-carriage:before {
+  content: "\f77d"; }
+
 .fa-backspace:before {
   content: "\f55a"; }
 
 .fa-backward:before {
   content: "\f04a"; }
+
+.fa-bacon:before {
+  content: "\f7e5"; }
 
 .fa-balance-scale:before {
   content: "\f24e"; }
@@ -2479,6 +1545,9 @@ readers do not read off random characters that represent icons */
 .fa-binoculars:before {
   content: "\f1e5"; }
 
+.fa-biohazard:before {
+  content: "\f780"; }
+
 .fa-birthday-cake:before {
   content: "\f1fd"; }
 
@@ -2505,6 +1574,9 @@ readers do not read off random characters that represent icons */
 
 .fa-blind:before {
   content: "\f29d"; }
+
+.fa-blog:before {
+  content: "\f781"; }
 
 .fa-blogger:before {
   content: "\f37c"; }
@@ -2539,6 +1611,9 @@ readers do not read off random characters that represent icons */
 .fa-book-dead:before {
   content: "\f6b7"; }
 
+.fa-book-medical:before {
+  content: "\f7e6"; }
+
 .fa-book-open:before {
   content: "\f518"; }
 
@@ -2565,6 +1640,9 @@ readers do not read off random characters that represent icons */
 
 .fa-brain:before {
   content: "\f5dc"; }
+
+.fa-bread-slice:before {
+  content: "\f7ec"; }
 
 .fa-briefcase:before {
   content: "\f0b1"; }
@@ -2626,6 +1704,9 @@ readers do not read off random characters that represent icons */
 .fa-calendar-check:before {
   content: "\f274"; }
 
+.fa-calendar-day:before {
+  content: "\f783"; }
+
 .fa-calendar-minus:before {
   content: "\f272"; }
 
@@ -2635,6 +1716,9 @@ readers do not read off random characters that represent icons */
 .fa-calendar-times:before {
   content: "\f273"; }
 
+.fa-calendar-week:before {
+  content: "\f784"; }
+
 .fa-camera:before {
   content: "\f030"; }
 
@@ -2643,6 +1727,12 @@ readers do not read off random characters that represent icons */
 
 .fa-campground:before {
   content: "\f6bb"; }
+
+.fa-canadian-maple-leaf:before {
+  content: "\f785"; }
+
+.fa-candy-cane:before {
+  content: "\f786"; }
 
 .fa-cannabis:before {
   content: "\f55f"; }
@@ -2689,11 +1779,17 @@ readers do not read off random characters that represent icons */
 .fa-caret-up:before {
   content: "\f0d8"; }
 
+.fa-carrot:before {
+  content: "\f787"; }
+
 .fa-cart-arrow-down:before {
   content: "\f218"; }
 
 .fa-cart-plus:before {
   content: "\f217"; }
+
+.fa-cash-register:before {
+  content: "\f788"; }
 
 .fa-cat:before {
   content: "\f6be"; }
@@ -2730,6 +1826,9 @@ readers do not read off random characters that represent icons */
 
 .fa-centercode:before {
   content: "\f380"; }
+
+.fa-centos:before {
+  content: "\f789"; }
 
 .fa-certificate:before {
   content: "\f0a3"; }
@@ -2769,6 +1868,9 @@ readers do not read off random characters that represent icons */
 
 .fa-check-square:before {
   content: "\f14a"; }
+
+.fa-cheese:before {
+  content: "\f7ef"; }
 
 .fa-chess:before {
   content: "\f439"; }
@@ -2835,6 +1937,9 @@ readers do not read off random characters that represent icons */
 
 .fa-city:before {
   content: "\f64f"; }
+
+.fa-clinic-medical:before {
+  content: "\f7f2"; }
 
 .fa-clipboard:before {
   content: "\f328"; }
@@ -2935,6 +2040,9 @@ readers do not read off random characters that represent icons */
 .fa-comment-dots:before {
   content: "\f4ad"; }
 
+.fa-comment-medical:before {
+  content: "\f7f5"; }
+
 .fa-comment-slash:before {
   content: "\f4b3"; }
 
@@ -2953,8 +2061,14 @@ readers do not read off random characters that represent icons */
 .fa-compress:before {
   content: "\f066"; }
 
+.fa-compress-arrows-alt:before {
+  content: "\f78c"; }
+
 .fa-concierge-bell:before {
   content: "\f562"; }
+
+.fa-confluence:before {
+  content: "\f78d"; }
 
 .fa-connectdevelop:before {
   content: "\f20e"; }
@@ -3046,6 +2160,9 @@ readers do not read off random characters that represent icons */
 .fa-crown:before {
   content: "\f521"; }
 
+.fa-crutch:before {
+  content: "\f7f7"; }
+
 .fa-css3:before {
   content: "\f13c"; }
 
@@ -3103,8 +2220,14 @@ readers do not read off random characters that represent icons */
 .fa-dharmachakra:before {
   content: "\f655"; }
 
+.fa-dhl:before {
+  content: "\f790"; }
+
 .fa-diagnoses:before {
   content: "\f470"; }
+
+.fa-diaspora:before {
+  content: "\f791"; }
 
 .fa-dice:before {
   content: "\f522"; }
@@ -3232,6 +2355,12 @@ readers do not read off random characters that represent icons */
 .fa-dumbbell:before {
   content: "\f44b"; }
 
+.fa-dumpster:before {
+  content: "\f793"; }
+
+.fa-dumpster-fire:before {
+  content: "\f794"; }
+
 .fa-dungeon:before {
   content: "\f6d9"; }
 
@@ -3249,6 +2378,9 @@ readers do not read off random characters that represent icons */
 
 .fa-edit:before {
   content: "\f044"; }
+
+.fa-egg:before {
+  content: "\f7fb"; }
 
 .fa-eject:before {
   content: "\f052"; }
@@ -3297,6 +2429,9 @@ readers do not read off random characters that represent icons */
 
 .fa-ethereum:before {
   content: "\f42e"; }
+
+.fa-ethernet:before {
+  content: "\f796"; }
 
 .fa-etsy:before {
   content: "\f2d7"; }
@@ -3370,11 +2505,20 @@ readers do not read off random characters that represent icons */
 .fa-feather-alt:before {
   content: "\f56b"; }
 
+.fa-fedex:before {
+  content: "\f797"; }
+
+.fa-fedora:before {
+  content: "\f798"; }
+
 .fa-female:before {
   content: "\f182"; }
 
 .fa-fighter-jet:before {
   content: "\f0fb"; }
+
+.fa-figma:before {
+  content: "\f799"; }
 
 .fa-file:before {
   content: "\f15b"; }
@@ -3462,6 +2606,9 @@ readers do not read off random characters that represent icons */
 
 .fa-fire:before {
   content: "\f06d"; }
+
+.fa-fire-alt:before {
+  content: "\f7e4"; }
 
 .fa-fire-extinguisher:before {
   content: "\f134"; }
@@ -3622,6 +2769,9 @@ readers do not read off random characters that represent icons */
 .fa-gift:before {
   content: "\f06b"; }
 
+.fa-gifts:before {
+  content: "\f79c"; }
+
 .fa-git:before {
   content: "\f1d3"; }
 
@@ -3646,11 +2796,17 @@ readers do not read off random characters that represent icons */
 .fa-gitter:before {
   content: "\f426"; }
 
+.fa-glass-cheers:before {
+  content: "\f79f"; }
+
 .fa-glass-martini:before {
   content: "\f000"; }
 
 .fa-glass-martini-alt:before {
   content: "\f57b"; }
+
+.fa-glass-whiskey:before {
+  content: "\f7a0"; }
 
 .fa-glasses:before {
   content: "\f530"; }
@@ -3672,6 +2828,9 @@ readers do not read off random characters that represent icons */
 
 .fa-globe-asia:before {
   content: "\f57e"; }
+
+.fa-globe-europe:before {
+  content: "\f7a2"; }
 
 .fa-gofore:before {
   content: "\f3a7"; }
@@ -3769,6 +2928,12 @@ readers do not read off random characters that represent icons */
 .fa-grip-horizontal:before {
   content: "\f58d"; }
 
+.fa-grip-lines:before {
+  content: "\f7a4"; }
+
+.fa-grip-lines-vertical:before {
+  content: "\f7a5"; }
+
 .fa-grip-vertical:before {
   content: "\f58e"; }
 
@@ -3777,6 +2942,9 @@ readers do not read off random characters that represent icons */
 
 .fa-grunt:before {
   content: "\f3ad"; }
+
+.fa-guitar:before {
+  content: "\f7a6"; }
 
 .fa-gulp:before {
   content: "\f3ae"; }
@@ -3792,6 +2960,9 @@ readers do not read off random characters that represent icons */
 
 .fa-hackerrank:before {
   content: "\f5f7"; }
+
+.fa-hamburger:before {
+  content: "\f805"; }
 
 .fa-hammer:before {
   content: "\f6e3"; }
@@ -3810,6 +2981,9 @@ readers do not read off random characters that represent icons */
 
 .fa-hand-lizard:before {
   content: "\f258"; }
+
+.fa-hand-middle-finger:before {
+  content: "\f806"; }
 
 .fa-hand-paper:before {
   content: "\f256"; }
@@ -3853,6 +3027,9 @@ readers do not read off random characters that represent icons */
 .fa-hanukiah:before {
   content: "\f6e6"; }
 
+.fa-hard-hat:before {
+  content: "\f807"; }
+
 .fa-hashtag:before {
   content: "\f292"; }
 
@@ -3879,6 +3056,9 @@ readers do not read off random characters that represent icons */
 
 .fa-heart:before {
   content: "\f004"; }
+
+.fa-heart-broken:before {
+  content: "\f7a9"; }
 
 .fa-heartbeat:before {
   content: "\f21e"; }
@@ -3907,6 +3087,9 @@ readers do not read off random characters that represent icons */
 .fa-hockey-puck:before {
   content: "\f453"; }
 
+.fa-holly-berry:before {
+  content: "\f7aa"; }
+
 .fa-home:before {
   content: "\f015"; }
 
@@ -3919,6 +3102,9 @@ readers do not read off random characters that represent icons */
 .fa-horse:before {
   content: "\f6f0"; }
 
+.fa-horse-head:before {
+  content: "\f7ab"; }
+
 .fa-hospital:before {
   content: "\f0f8"; }
 
@@ -3930,6 +3116,9 @@ readers do not read off random characters that represent icons */
 
 .fa-hot-tub:before {
   content: "\f593"; }
+
+.fa-hotdog:before {
+  content: "\f80f"; }
 
 .fa-hotel:before {
   content: "\f594"; }
@@ -3967,6 +3156,12 @@ readers do not read off random characters that represent icons */
 .fa-i-cursor:before {
   content: "\f246"; }
 
+.fa-ice-cream:before {
+  content: "\f810"; }
+
+.fa-icicles:before {
+  content: "\f7ad"; }
+
 .fa-id-badge:before {
   content: "\f2c1"; }
 
@@ -3975,6 +3170,9 @@ readers do not read off random characters that represent icons */
 
 .fa-id-card-alt:before {
   content: "\f47f"; }
+
+.fa-igloo:before {
+  content: "\f7ae"; }
 
 .fa-image:before {
   content: "\f03e"; }
@@ -4006,8 +3204,14 @@ readers do not read off random characters that represent icons */
 .fa-instagram:before {
   content: "\f16d"; }
 
+.fa-intercom:before {
+  content: "\f7af"; }
+
 .fa-internet-explorer:before {
   content: "\f26b"; }
+
+.fa-invision:before {
+  content: "\f7b0"; }
 
 .fa-ioxhost:before {
   content: "\f208"; }
@@ -4032,6 +3236,9 @@ readers do not read off random characters that represent icons */
 
 .fa-jenkins:before {
   content: "\f3b6"; }
+
+.fa-jira:before {
+  content: "\f7b1"; }
 
 .fa-joget:before {
   content: "\f3b7"; }
@@ -4107,6 +3314,9 @@ readers do not read off random characters that represent icons */
 
 .fa-laptop-code:before {
   content: "\f5fc"; }
+
+.fa-laptop-medical:before {
+  content: "\f812"; }
 
 .fa-laravel:before {
   content: "\f3bd"; }
@@ -4333,6 +3543,9 @@ readers do not read off random characters that represent icons */
 .fa-memory:before {
   content: "\f538"; }
 
+.fa-mendeley:before {
+  content: "\f7b3"; }
+
 .fa-menorah:before {
   content: "\f676"; }
 
@@ -4371,6 +3584,9 @@ readers do not read off random characters that represent icons */
 
 .fa-minus-square:before {
   content: "\f146"; }
+
+.fa-mitten:before {
+  content: "\f7b5"; }
 
 .fa-mix:before {
   content: "\f3cb"; }
@@ -4431,6 +3647,9 @@ readers do not read off random characters that represent icons */
 
 .fa-mouse-pointer:before {
   content: "\f245"; }
+
+.fa-mug-hot:before {
+  content: "\f7b6"; }
 
 .fa-music:before {
   content: "\f001"; }
@@ -4525,6 +3744,9 @@ readers do not read off random characters that represent icons */
 .fa-pagelines:before {
   content: "\f18c"; }
 
+.fa-pager:before {
+  content: "\f815"; }
+
 .fa-paint-brush:before {
   content: "\f1fc"; }
 
@@ -4609,6 +3831,9 @@ readers do not read off random characters that represent icons */
 .fa-people-carry:before {
   content: "\f4ce"; }
 
+.fa-pepper-hot:before {
+  content: "\f816"; }
+
 .fa-percent:before {
   content: "\f295"; }
 
@@ -4671,6 +3896,9 @@ readers do not read off random characters that represent icons */
 
 .fa-pinterest-square:before {
   content: "\f0d3"; }
+
+.fa-pizza-slice:before {
+  content: "\f818"; }
 
 .fa-place-of-worship:before {
   content: "\f67f"; }
@@ -4801,11 +4029,20 @@ readers do not read off random characters that represent icons */
 .fa-r-project:before {
   content: "\f4f7"; }
 
+.fa-radiation:before {
+  content: "\f7b9"; }
+
+.fa-radiation-alt:before {
+  content: "\f7ba"; }
+
 .fa-rainbow:before {
   content: "\f75b"; }
 
 .fa-random:before {
   content: "\f074"; }
+
+.fa-raspberry-pi:before {
+  content: "\f7bb"; }
 
 .fa-ravelry:before {
   content: "\f2d9"; }
@@ -4840,6 +4077,9 @@ readers do not read off random characters that represent icons */
 .fa-reddit-square:before {
   content: "\f1a2"; }
 
+.fa-redhat:before {
+  content: "\f7bc"; }
+
 .fa-redo:before {
   content: "\f01e"; }
 
@@ -4869,6 +4109,9 @@ readers do not read off random characters that represent icons */
 
 .fa-resolving:before {
   content: "\f3e7"; }
+
+.fa-restroom:before {
+  content: "\f7bd"; }
 
 .fa-retweet:before {
   content: "\f079"; }
@@ -4939,6 +4182,12 @@ readers do not read off random characters that represent icons */
 .fa-sass:before {
   content: "\f41e"; }
 
+.fa-satellite:before {
+  content: "\f7bf"; }
+
+.fa-satellite-dish:before {
+  content: "\f7c0"; }
+
 .fa-save:before {
   content: "\f0c7"; }
 
@@ -4956,6 +4205,9 @@ readers do not read off random characters that represent icons */
 
 .fa-scroll:before {
   content: "\f70e"; }
+
+.fa-sd-card:before {
+  content: "\f7c2"; }
 
 .fa-search:before {
   content: "\f002"; }
@@ -5059,6 +4311,9 @@ readers do not read off random characters that represent icons */
 .fa-signature:before {
   content: "\f5b7"; }
 
+.fa-sim-card:before {
+  content: "\f7c4"; }
+
 .fa-simplybuilt:before {
   content: "\f215"; }
 
@@ -5070,6 +4325,18 @@ readers do not read off random characters that represent icons */
 
 .fa-sith:before {
   content: "\f512"; }
+
+.fa-skating:before {
+  content: "\f7c5"; }
+
+.fa-sketch:before {
+  content: "\f7c6"; }
+
+.fa-skiing:before {
+  content: "\f7c9"; }
+
+.fa-skiing-nordic:before {
+  content: "\f7ca"; }
 
 .fa-skull:before {
   content: "\f54c"; }
@@ -5091,6 +4358,9 @@ readers do not read off random characters that represent icons */
 
 .fa-slash:before {
   content: "\f715"; }
+
+.fa-sleigh:before {
+  content: "\f7cc"; }
 
 .fa-sliders-h:before {
   content: "\f1de"; }
@@ -5116,6 +4386,9 @@ readers do not read off random characters that represent icons */
 .fa-smoking-ban:before {
   content: "\f54d"; }
 
+.fa-sms:before {
+  content: "\f7cd"; }
+
 .fa-snapchat:before {
   content: "\f2ab"; }
 
@@ -5125,8 +4398,17 @@ readers do not read off random characters that represent icons */
 .fa-snapchat-square:before {
   content: "\f2ad"; }
 
+.fa-snowboarding:before {
+  content: "\f7ce"; }
+
 .fa-snowflake:before {
   content: "\f2dc"; }
+
+.fa-snowman:before {
+  content: "\f7d0"; }
+
+.fa-snowplow:before {
+  content: "\f7d2"; }
 
 .fa-socks:before {
   content: "\f696"; }
@@ -5163,6 +4445,9 @@ readers do not read off random characters that represent icons */
 
 .fa-soundcloud:before {
   content: "\f1be"; }
+
+.fa-sourcetree:before {
+  content: "\f7d3"; }
 
 .fa-spa:before {
   content: "\f5bb"; }
@@ -5326,6 +4611,9 @@ readers do not read off random characters that represent icons */
 .fa-surprise:before {
   content: "\f5c2"; }
 
+.fa-suse:before {
+  content: "\f7d6"; }
+
 .fa-swatchbook:before {
   content: "\f5c3"; }
 
@@ -5403,6 +4691,9 @@ readers do not read off random characters that represent icons */
 
 .fa-tencent-weibo:before {
   content: "\f1d5"; }
+
+.fa-tenge:before {
+  content: "\f7d7"; }
 
 .fa-terminal:before {
   content: "\f120"; }
@@ -5488,11 +4779,17 @@ readers do not read off random characters that represent icons */
 .fa-toggle-on:before {
   content: "\f205"; }
 
+.fa-toilet:before {
+  content: "\f7d8"; }
+
 .fa-toilet-paper:before {
   content: "\f71e"; }
 
 .fa-toolbox:before {
   content: "\f552"; }
+
+.fa-tools:before {
+  content: "\f7d9"; }
 
 .fa-tooth:before {
   content: "\f5c9"; }
@@ -5518,6 +4815,9 @@ readers do not read off random characters that represent icons */
 .fa-train:before {
   content: "\f238"; }
 
+.fa-tram:before {
+  content: "\f7da"; }
+
 .fa-transgender:before {
   content: "\f224"; }
 
@@ -5529,6 +4829,12 @@ readers do not read off random characters that represent icons */
 
 .fa-trash-alt:before {
   content: "\f2ed"; }
+
+.fa-trash-restore:before {
+  content: "\f829"; }
+
+.fa-trash-restore-alt:before {
+  content: "\f82a"; }
 
 .fa-tree:before {
   content: "\f1bb"; }
@@ -5587,6 +4893,9 @@ readers do not read off random characters that represent icons */
 .fa-uber:before {
   content: "\f402"; }
 
+.fa-ubuntu:before {
+  content: "\f7df"; }
+
 .fa-uikit:before {
   content: "\f403"; }
 
@@ -5628,6 +4937,9 @@ readers do not read off random characters that represent icons */
 
 .fa-upload:before {
   content: "\f093"; }
+
+.fa-ups:before {
+  content: "\f7e0"; }
 
 .fa-usb:before {
   content: "\f287"; }
@@ -5680,6 +4992,9 @@ readers do not read off random characters that represent icons */
 .fa-user-ninja:before {
   content: "\f504"; }
 
+.fa-user-nurse:before {
+  content: "\f82f"; }
+
 .fa-user-plus:before {
   content: "\f234"; }
 
@@ -5706,6 +5021,9 @@ readers do not read off random characters that represent icons */
 
 .fa-users-cog:before {
   content: "\f509"; }
+
+.fa-usps:before {
+  content: "\f7e1"; }
 
 .fa-ussunnah:before {
   content: "\f407"; }
@@ -5929,6 +5247,9 @@ readers do not read off random characters that represent icons */
 .fa-yandex-international:before {
   content: "\f414"; }
 
+.fa-yarn:before {
+  content: "\f7e3"; }
+
 .fa-yelp:before {
   content: "\f1e9"; }
 
@@ -5971,6 +5292,7 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: normal;
+  font-display: auto;
   src: url("../webfonts/fa-brands-400.eot");
   src: url("../webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"), url("../webfonts/fa-brands-400.ttf") format("truetype"), url("../webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
 
@@ -5980,6 +5302,7 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 400;
+  font-display: auto;
   src: url("../webfonts/fa-regular-400.eot");
   src: url("../webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.woff") format("woff"), url("../webfonts/fa-regular-400.ttf") format("truetype"), url("../webfonts/fa-regular-400.svg#fontawesome") format("svg"); }
 
@@ -5990,6 +5313,7 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 900;
+  font-display: auto;
   src: url("../webfonts/fa-solid-900.eot");
   src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 

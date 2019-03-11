@@ -1,25 +1,12 @@
 @extends('layouts.admin')
 
-@section('breadcrumbs')
-<ol class="breadcrumb">
-  <li><a href="{{route('adminDashboard')}}">Dashboard</a></li>
-  <li><a href="{{route('adminPages')}}">Pages</a></li>
-  <li class="active">Edit</li>
-</ol>
-@stop
-
 @section('content')
 <div class="col-sm-8">
-  <div class="widget">
-    <div class="header">
-      <i class="fa fa-file"></i> Form
-    </div>
-  </div>
-  {!! Form::model($data, ['route'=>['adminPagesUpdate', $data->id], 'files' => true, 'method' => 'patch', 'class'=>'form form-parsley form-edit']) !!}
-  @include('admin.pages.form')
-  {!! Form::close() !!}
+	@yield('card')
 </div>
-<div class="seo-url" data-url="{{route('adminPagesSeo')}}">
-  @include('admin.seo.form')
+<div class="col-sm-4">
+	<div class="seo-url" data-url="{{route('adminPagesSeo')}}">
+		@include('admin.seo.form')
+	</div>
 </div>
 @stop

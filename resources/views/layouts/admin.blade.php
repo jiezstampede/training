@@ -3,11 +3,13 @@
 	<head>
 		<title>Admin</title>
 		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
 		{!! Html::style('css/admin-plugins.css') !!}
 		{!! Html::style('css/admin.css') !!}
 		{!! Html::style('css/paper-dashboard.css') !!}
 		{!! Html::style('css/stampede.css') !!}
+		{!! Html::style('third_party/redactor/redactor.min.css') !!}
 	</head>
 	<body>
 		<div id="page-loader" class="loader hide">
@@ -74,16 +76,41 @@
 							</a>
 						</li>
 						<li class="{{Menu::active('pages', @$menu)}}">
-							<a href="{{route('adminPages')}}">
+							<a data-toggle="collapse" href="#pages" aria-expanded="false">
 								<i class="nc-icon nc-book-bookmark"></i>
-								<p>Pages</p>
+								<p>
+									Pages
+									<b class="caret"></b>
+								</p>
 							</a>
-						</li>
-						<li class="{{Menu::active('page_categories', @$menu)}}">
-							<a href="{{route('adminPageCategories')}}">
-								<i class="nc-icon nc-bookmark-2"></i>
-								<p>Page Categories</p>
-							</a>
+							<div class="collapse {{ Menu::active('pages', @$menu) }} " id="pages">
+								<ul class="nav">
+									<li class="{{Menu::active('pages-home', @$menu)}}">
+										<a href="{{route('adminPages', ['home'])}}">
+											<span class="sidebar-mini-icon">H</span>
+											<span class="sidebar-normal"> Home </span>
+										</a>
+									</li>
+									<li class="{{Menu::active('pages-about', @$menu)}}">
+										<a href="{{route('adminPages', ['about'])}}">
+											<span class="sidebar-mini-icon">A</span>
+											<span class="sidebar-normal"> About </span>
+										</a>
+									</li>
+									<li class="{{Menu::active('pages-mechanics', @$menu)}}">
+										<a href="{{route('adminPages', ['mechanics'])}}">
+											<span class="sidebar-mini-icon">A</span>
+											<span class="sidebar-normal"> Articles </span>
+										</a>
+									</li>
+									<li class="{{Menu::active('pages-cards', @$menu)}}">
+										<a href="{{route('adminPages', ['cards'])}}">
+											<span class="sidebar-mini-icon">C</span>
+											<span class="sidebar-normal"> Contact Us </span>
+										</a>
+									</li>
+								</ul>
+							</div>
 						</li>
 						<li class="{{Menu::active('articles', @$menu)}}">
 							<a href="{{route('adminArticles')}}">
@@ -91,10 +118,16 @@
 								<p>Articles</p>
 							</a>
 						</li>
-						<li class="{{Menu::active('banners', @$menu)}}">
-							<a href="{{route('adminBanners')}}">
-								<i class="nc-icon nc-album-2"></i>
-								<p>Banners</p>
+						<li class="{{Menu::active('articles', @$menu)}}">
+							<a href="{{route('adminArticles')}}">
+								<i class="nc-icon nc-circle-10"></i>
+								<p>Team</p>
+							</a>
+						</li>
+						<li class="{{Menu::active('articles', @$menu)}}">
+							<a href="{{route('adminArticles')}}">
+								<i class="nc-icon nc-email-85"></i>
+								<p>Inquiries</p>
 							</a>
 						</li>
 						<li class="{{Menu::active('users', @$menu)}}">
@@ -107,12 +140,6 @@
 							<a href="{{route('adminUserRoles')}}">
 								<i class="nc-icon nc-key-25"></i>
 								<p>User Roles</p>
-							</a>
-						</li>
-						<li class="{{Menu::active('user_permissions', @$menu)}}">
-							<a href="{{route('adminUserPermissions',[0])}}">
-								<i class="nc-icon nc-tap-01"></i>
-								<p>Functions</p>
 							</a>
 						</li>
 						<li>
@@ -182,13 +209,6 @@
 					<div id="content">
 					<div class="container-fluid">
 						<div class="row">
-						<div class="col-sm-12">
-							<div class="page-header">
-							<h1>{{$title}}</h1>
-							</div>
-						</div>
-						</div>
-						<div class="row">
 						@yield('content')
 						</div>
 					</div>
@@ -201,6 +221,13 @@
 		@include('admin.templates.asset_image')
 		{!! Html::script('js/plugins.js') !!}
 		{!! Html::script('js/admin.js') !!}
+		{!! Html::script('third_party/redactor/redactor.min.js') !!}
+		{!! Html::script('third_party/redactor/_plugins/table/table.min.js') !!}
+		{!! Html::script('third_party/redactor/_plugins/fontcolor/fontcolor.min.js') !!}
+		{!! Html::script('third_party/redactor/_plugins/fontsize/fontsize.min.js') !!}
+		{!! Html::script('third_party/redactor/_plugins/alignment/alignment.min.js') !!}
+		{!! Html::script('third_party/redactor/_plugins/counter/counter.min.js') !!}
+		{!! Html::script('third_party/redactor/_plugins/widget/widget.min.js') !!}
 		@yield('added-scripts')
 	</body>
 </html>

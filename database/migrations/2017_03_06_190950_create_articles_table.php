@@ -14,17 +14,19 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',255);
-            $table->string('slug',255)->nullable();
-            $table->string('blurb',255)->nullable();
-            $table->date('date');
-            $table->tinyInteger('featured')->nullable();
-            $table->enum('published', ['draft', 'published']);    
-            $table->text('content');
-            $table->string('image',512)->nullable();
-            $table->string('image_thumbnail',512)->nullable();
+            $table->string('title',255);
+			$table->text('slug');
             $table->string('author',255)->nullable();
-            $table->timestamps();
+            $table->date('date');
+            $table->text('excerpt');
+            $table->text('content');
+			$table->string('thumbnail',512)->nullable();
+			$table->string('banner_image',512)->nullable();
+			$table->string('banner_subtitle',255);
+			$table->date('date_published')->nullable();
+			$table->integer('featured');
+			$table->enum('published', ['draft', 'published']);
+			$table->timestamps();
             $table->softDeletes();
         });
     }

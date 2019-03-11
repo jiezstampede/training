@@ -96,15 +96,25 @@ Route::patch('admin/page_categories/{id}', array('as'=>'adminPageCategoriesUpdat
 Route::post('admin/page_categories/seo', array('as'=>'adminPageCategoriesSeo','uses'=>'Admin\PageCategoryController@seo'));
 Route::delete('admin/page_categories/destroy', array('as'=>'adminPageCategoriesDestroy','uses'=>'Admin\PageCategoryController@destroy'));
 
-Route::get('admin/pages', array('as'=>'adminPages','uses'=>'Admin\PageController@index'));
+Route::get('admin/pages/{slug}', array('as'=>'adminPages','uses'=>'Admin\PageController@index'));
 Route::get('admin/pages/create', array('as'=>'adminPagesCreate','uses'=>'Admin\PageController@create'));
 Route::post('admin/pages/', array('as'=>'adminPagesStore','uses'=>'Admin\PageController@store'));
 Route::get('admin/pages/{id}/show', array('as'=>'adminPagesShow','uses'=>'Admin\PageController@show'));
 Route::get('admin/pages/{id}/view', array('as'=>'adminPagesView','uses'=>'Admin\PageController@view'));
-Route::get('admin/pages/{id}/edit', array('as'=>'adminPagesEdit','uses'=>'Admin\PageController@edit'));
+Route::get('admin/pages/{slug}/edit/{section}', array('as'=>'adminPagesEdit','uses'=>'Admin\PageController@edit'));
 Route::patch('admin/pages/{id}', array('as'=>'adminPagesUpdate','uses'=>'Admin\PageController@update'));
 Route::post('admin/pages/seo', array('as'=>'adminPagesSeo','uses'=>'Admin\PageController@seo'));
 Route::delete('admin/pages/destroy', array('as'=>'adminPagesDestroy','uses'=>'Admin\PageController@destroy'));
+
+Route::post('admin/pages/item/store/{slug}', array('as'=>'adminPagesStoreItem','uses'=>'Admin\PageController@storeItem'));
+Route::post('admin/pages/{section}/item/store/{slug}', array('as'=>'adminPagesStoreItemFromPage','uses'=>'Admin\PageController@storeItemFromPage'));
+Route::delete('admin/pages/item/delete', array('as'=>'adminPagesDeleteItem','uses'=>'Admin\PageController@deleteItem'));
+Route::patch('admin/pages/item/update', array('as'=>'adminPagesUpdateItem','uses'=>'Admin\PageController@updateItem'));
+Route::patch('admin/pages/item/update/form/{id}', array('as'=>'adminPagesUpdateItemFromPage','uses'=>'Admin\PageController@updateItemFromPage'));
+Route::get('admin/pages/{slug}/item/edit/{id}', array('as'=>'adminPagesEditItem','uses'=>'Admin\PageController@editItem'));
+Route::get('admin/pages/{slug}/item/create/', array('as'=>'adminPagesCreateItem','uses'=>'Admin\PageController@createItem'));
+Route::get('admin/pages/{slug}/item/sort', array('as'=>'adminPagesSortItem','uses'=>'Admin\PageController@sortItem'));
+
 
 Route::get('admin/banners', array('as'=>'adminBanners','uses'=>'Admin\BannerController@index'));
 Route::get('admin/banners/create', array('as'=>'adminBannersCreate','uses'=>'Admin\BannerController@create'));

@@ -39,6 +39,7 @@
 		}
 		a.logo-mini {
 			opacity: 1;
+			margin-left: 15px;
 		}
 	}
 	.user {
@@ -46,6 +47,16 @@
 			> a {
 				line-height: 24px;
 			}
+		}
+	}
+}
+
+.btn.btn-icon, .navbar .navbar-nav > a.btn.btn-icon {
+	height: 28px;
+	min-width: 28px;
+	&:not(.btn-footer) {
+		i, .fa, .fas, .far, .fal, .fab, .nc-icon {
+			transform: translate(-12px, -8px);
 		}
 	}
 }

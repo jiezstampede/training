@@ -24,11 +24,15 @@ class PageRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
+            'name' => 'max:255',
+            'value' => 'max:255',
+            'title' => 'max:255',
+            'blurb' => 'max:255',
+            'button_caption' => 'max:255',
             'slug' => 'max:255',
-            'published' => 'required|in:draft,published',
-            'page_category_id' => 'required|integer',
-            'content' => 'required',
+            'published' => 'in:draft,published',
+            'icon_type' => 'in:font-awesome,image',
+            'icon_value' => 'max:255',
         ];
     }
 }
