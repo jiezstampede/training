@@ -32,6 +32,20 @@ Route::get('admin/samples/crop/url', array('as'=>'adminSamplesCropUrl','uses'=>'
 Route::get('admin/samples/{id}/crop/{column}/{asset_id}', array('as'=>'adminSamplesCropForm','uses'=>'Admin\SampleController@crop_form'));
 Route::patch('admin/samples/{id}/crop', array('as'=>'adminSamplesCrop','uses'=>'Admin\SampleController@crop'));
 
+Route::get('admin/feedbacks', array('as'=>'adminFeedbacks','uses'=>'Admin\FeedbackController@index'));
+Route::get('admin/feedbacks/datatable', array('as'=>'adminFeedbacksDatatable','uses'=>'Admin\FeedbackController@datatable'));
+Route::get('admin/feedbacks/create', array('as'=>'adminFeedbacksCreate','uses'=>'Admin\FeedbackController@create'));
+Route::post('admin/feedbacks/', array('as'=>'adminFeedbacksStore','uses'=>'Admin\FeedbackController@store'));
+Route::get('admin/feedbacks/{id}/show', array('as'=>'adminFeedbacksShow','uses'=>'Admin\FeedbackController@show'));
+Route::get('admin/feedbacks/{id}/view', array('as'=>'adminFeedbacksView','uses'=>'Admin\FeedbackController@view'));
+Route::get('admin/feedbacks/{id}/edit', array('as'=>'adminFeedbacksEdit','uses'=>'Admin\FeedbackController@edit'));
+Route::patch('admin/feedbacks/{id}', array('as'=>'adminFeedbacksUpdate','uses'=>'Admin\FeedbackController@update'));
+Route::post('admin/feedbacks/seo', array('as'=>'adminFeedbacksSeo','uses'=>'Admin\FeedbackController@seo'));
+Route::delete('admin/feedbacks/destroy', array('as'=>'adminFeedbacksDestroy','uses'=>'Admin\FeedbackController@destroy'));
+Route::get('admin/feedbacks/crop/url', array('as'=>'adminFeedbacksCropUrl','uses'=>'Admin\FeedbackController@crop_url'));
+Route::get('admin/feedbacks/{id}/crop/{column}/{asset_id}', array('as'=>'adminFeedbacksCropForm','uses'=>'Admin\FeedbackController@crop_form'));
+Route::patch('admin/feedbacks/{id}/crop', array('as'=>'adminFeedbacksCrop','uses'=>'Admin\FeedbackController@crop'));
+
 Route::get('admin/users', array('as'=>'adminUsers','uses'=>'Admin\UserController@index'));
 Route::get('admin/users/create', array('as'=>'adminUsersCreate','uses'=>'Admin\UserController@create'));
 Route::post('admin/users/', array('as'=>'adminUsersStore','uses'=>'Admin\UserController@store'));

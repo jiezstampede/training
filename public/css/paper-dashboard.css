@@ -2826,7 +2826,7 @@ table.dataTable thead .sorting_desc_disabled:after {
   display: inline-block;
   bottom: 0px;
   right: -7px;
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
   opacity: 0.8; }
 
 table.dataTable thead .disabled-sorting.sorting:after,
@@ -7318,7 +7318,7 @@ img {
     background-color: #AAA7A4;
     transition: opacity 0.3s linear; }
   .form-check .form-check-sign::after {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f00c";
     top: -1px;
     text-align: center;
@@ -7359,7 +7359,7 @@ img {
     cursor: not-allowed; }
 
 .form-check-radio .form-check-sign::before {
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
   content: "\f10c";
   font-size: 22px;
   -webkit-font-smoothing: antialiased;
@@ -7381,7 +7381,7 @@ img {
   display: block; }
 
 .form-check-radio input[type="radio"]:checked + .form-check-sign::after {
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
   content: "\f192";
   top: -5px;
   position: absolute;

@@ -36,7 +36,7 @@
         transition: opacity 0.3s linear;
     }
     .form-check-sign::after {
-        font-family: 'FontAwesome';
+        font-family: 'Font Awesome 5 Free';
         content: "\f00c";
         top: -1px;
         text-align: center;
@@ -97,7 +97,7 @@
 }
 
 .form-check-radio .form-check-sign::before{
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f10c";
     font-size: 22px;
     -webkit-font-smoothing: antialiased;
@@ -122,7 +122,7 @@
 }
 
 .form-check-radio input[type="radio"]:checked + .form-check-sign::after {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f192";
     top: -5px;
     position: absolute;

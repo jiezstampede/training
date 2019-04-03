@@ -27,7 +27,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if ($name = $request->name) {
-            $users = User::where('name', 'LIKE', '%' . $name . '%')->paginate(25);
+            $users = User::where('name', 'LIKE', '%' . $name . '%')->orWhere('email', 'LIKE', '%' . $name . '%')->paginate(25);
         } else {
             $users = User::paginate(25);
         }
@@ -36,6 +36,7 @@ class UserController extends Controller
         return view('admin/users/index')
             ->with('title', 'Users')
             ->with('menu', 'users')
+            ->with('keyword', $request->name)
             ->with('data', $users)
             ->with('pagination', $pagination);
     }
@@ -47,7 +48,6 @@ class UserController extends Controller
 
     public function create()
     {
-        Option::email();
         $user_roles = UserRole::lists('name','id');
         return view('admin/users/create')
             ->with('user_roles',$user_roles)
