@@ -34,7 +34,7 @@ class General extends Mail
 			if($c->parent==0){
 
 				if(count($c->children)>0){
-					echo '<li><input type="checkbox" id="func-'.$c->id.'" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label for="func-'.$c->id.'" class="parent header">';
+					echo '<li><input type="checkbox" id="func-'.$c->id.'" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label for="func-'.$c->id.'" class="parent header no-margin">';
 					echo $c->name;
 					echo '</label></li>';
 					echo '<ul class="parent permission-list">';
@@ -42,7 +42,7 @@ class General extends Mail
 					echo '</ul>';
 
 				}else{
-					echo '<li><input type="checkbox" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label class="parent header">';
+					echo '<li><input type="checkbox" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label class="parent header no-margin">';
 					echo $c->name;
 					echo '</label></li>';
 				}
@@ -50,7 +50,7 @@ class General extends Mail
 			else if(!in_array($c->id,$ids)){
 
 				if(count($c->children)>0){
-					echo '<li><input type="checkbox" id="func-'.$c->id.'" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label for="func-'.$c->id.'" class="parent header">';
+					echo '<li><input type="checkbox" id="func-'.$c->id.'" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label for="func-'.$c->id.'" class="parent header no-margin">';
 					echo $c->name;
 					echo '</label></li>';
 					echo '<ul class="permission-list">';
@@ -58,7 +58,7 @@ class General extends Mail
 					echo '</ul>';
 
 				}else{
-					echo '<li><input type="checkbox"  id="func-'.$c->id.'" name="ids[]" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label for="func-'.$c->id.'" class="parent header">';
+					echo '<li><input type="checkbox"  id="func-'.$c->id.'" name="ids[]" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label for="func-'.$c->id.'" class="parent header no-margin">';
 					echo $c->name;
 					echo '</label></li>';
 				}
@@ -66,7 +66,7 @@ class General extends Mail
 			else if(in_array($c->id,$ids) && $c->parent==$curParentId){
 
 				if(count($c->children)>0){
-					echo '<li><input type="checkbox" id="func-'.$c->id.'" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label for="func-'.$c->id.'" class="parent header">';
+					echo '<li><input type="checkbox" id="func-'.$c->id.'" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label for="func-'.$c->id.'" class="parent header no-margin">';
 					echo $c->name;
 					echo '</label></li>';
 					echo '<ul class="permission-list">';
@@ -74,7 +74,7 @@ class General extends Mail
 					echo '</ul>';
 
 				}else{
-					echo '<li><input type="checkbox" id="func-'.$c->id.'" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label for="func-'.$c->id.'" class="parent header">';
+					echo '<li><input type="checkbox" id="func-'.$c->id.'" name="ids[]" value="'.$c->id.'" '.(in_array($c->id,$data) ? "checked":"").'><label for="func-'.$c->id.'" class="parent header no-margin">';
 					echo $c->name;
 					echo '</label></li>';
 				}

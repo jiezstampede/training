@@ -29,6 +29,22 @@
         position: relative;
         left: 0;
         top: 0; }
+    .navbar .container-fluid > .navbar-wrapper {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center; }
+      .navbar .container-fluid > .navbar-wrapper .breadcrumb {
+        margin: 0;
+        background: none;
+        font-size: 11px; }
+        .navbar .container-fluid > .navbar-wrapper .breadcrumb > li {
+          display: -ms-inline-flexbox;
+          display: inline-flex;
+          -ms-flex-align: center;
+          align-items: center; }
+          .navbar .container-fluid > .navbar-wrapper .breadcrumb > li a {
+            color: #51cbce; }
 
 .sidebar .logo a.simple-text {
   text-transform: initial; }
@@ -45,6 +61,46 @@
   min-width: 28px; }
   .btn.btn-icon:not(.btn-footer) i, .btn.btn-icon:not(.btn-footer) .fa, .btn.btn-icon:not(.btn-footer) .fas, .btn.btn-icon:not(.btn-footer) .far, .btn.btn-icon:not(.btn-footer) .fal, .btn.btn-icon:not(.btn-footer) .fab, .btn.btn-icon:not(.btn-footer) .nc-icon, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) i, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fa, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fas, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .far, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fal, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fab, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .nc-icon {
     transform: translate(-12px, -8px); }
+
+.modal .modal-content > .modal-body {
+  padding: 20px; }
+  .modal .modal-content > .modal-body > h3 {
+    margin-top: 0; }
+
+.card-filter {
+  padding: 10px 15px; }
+
+.form-with-submit-icon {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 200px;
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
+  .form-with-submit-icon > .btn {
+    margin: 0;
+    margin-left: 10px; }
+
+.no-margin {
+  margin: 0 !important; }
+
+.centered-flex {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.bottom-right-flex {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
+
+.inline-block {
+  display: inline-block; }
 
 /*# sourceMappingURL=stampede-sass.css.map */
 

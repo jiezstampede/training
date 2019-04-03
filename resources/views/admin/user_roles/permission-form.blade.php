@@ -1,4 +1,4 @@
-<div class="col-sm-7 col-sm-push-1">
+<div class="col-sm-4">
   
   <ul class="list-group permission-list">
     @if(isset($data))
