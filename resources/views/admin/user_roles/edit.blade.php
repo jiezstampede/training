@@ -9,14 +9,18 @@
 @stop
 
 @section('content')
-<div class="col-sm-12">
-  <div class="widget">
-    <div class="header">
-      <i class="fa fa-file"></i> Form
+<div class="col-sm-8">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title">
+        Edit User Role
+      </h4>
+    </div>
+    <div class="card-body">
+      {!! Form::model($data, ['route'=>['adminUserRolesUpdate', $data->id], 'files' => true, 'method' => 'patch', 'class'=>'form form-parsley form-edit row']) !!}
+      @include('admin.user_roles.form')
+      {!! Form::close() !!}
     </div>
   </div>
-  {!! Form::model($data, ['route'=>['adminUserRolesUpdate', $data->id], 'files' => true, 'method' => 'patch', 'class'=>'form form-parsley form-edit row']) !!}
-  @include('admin.user_roles.form')
-  {!! Form::close() !!}
 </div>
 @stop

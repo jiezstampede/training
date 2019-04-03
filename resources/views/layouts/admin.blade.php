@@ -27,14 +27,11 @@
 				<div class="logo">
 					<a href="{{ URL::to('/admin/dashboard')}}" class="simple-text logo-mini">
 						<div class="logo-image-small">
-							<img src="{{ asset('img/logo-only-white.png') }}" />
+							<img src="{{ asset('img/logo.png') }}" />
 						</div>
 					</a>
 					<a href="{{ URL::to('/admin/dashboard')}}" class="simple-text logo-normal">
-						Hello Shredder
-						<!-- <div class="logo-image-big">
-			            <img src="../../assets/img/logo-big.png">
-			          </div> -->
+						helloshredder
 					</a>
 				</div>
 				<div class="sidebar-wrapper">
@@ -124,8 +121,8 @@
 								<p>Team</p>
 							</a>
 						</li>
-						<li class="{{Menu::active('articles', @$menu)}}">
-							<a href="{{route('adminArticles')}}">
+						<li class="{{Menu::active('feedbacks', @$menu)}}">
+							<a href="{{route('adminFeedbacks')}}">
 								<i class="nc-icon nc-email-85"></i>
 								<p>Inquiries</p>
 							</a>
@@ -194,18 +191,12 @@
 									<span class="navbar-toggler-bar bar3"></span>
 								</button>
 							</div>
+							@yield('breadcrumbs')
 						</div>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
-						 aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-bar navbar-kebab"></span>
-							<span class="navbar-toggler-bar navbar-kebab"></span>
-							<span class="navbar-toggler-bar navbar-kebab"></span>
-						</button>
 					</div>
 				</nav>
 				<!-- End Navbar -->
 				<main class="content">
-					@yield('breadcrumbs')
 					<div id="content">
 					<div class="container-fluid">
 						<div class="row">

@@ -1,6 +1,6 @@
 <div class="options-form">
 	<div class="form-group">
-	  <label for="name">Name</label>
+	  <label for="name">Name *</label>
 	  {!! Form::text('name', null, ['class'=>'form-control', 'id'=>'name', 'placeholder'=>'Name']) !!}
 	</div>
 	@if (isset($data))
@@ -40,6 +40,8 @@
 		<label for="asset">Asset</label>
 		{!! Form::hidden('asset', null, ['class'=>'sumo-asset']) !!}
 	</div>
+	<div class="category form-category">* Required fields</div>
+	<br>
 	<div class="form-group clearfix">
 		<a href="{{route('adminOptions')}}" class="btn btn-default">Back</a>
 <button type="submit" class="btn btn-primary pull-right">

@@ -29,6 +29,25 @@
 				top: 0;
 			}
 		}
+		> .navbar-wrapper {
+			display: flex;
+			align-items: center;
+
+			.breadcrumb {
+				margin: 0;
+				background: none;
+				font-size: 11px;
+
+				> li {
+					display: inline-flex;
+					align-items: center;
+
+					a {
+						color: $primary-color;
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -59,4 +78,46 @@
 			transform: translate(-12px, -8px);
 		}
 	}
+}
+
+.modal 	{
+	.modal-content {
+		> .modal-body {
+			padding: 20px;
+			> h3 {
+				margin-top: 0;
+			}
+		}
+	}
+}
+.card-filter {
+	padding: 10px 15px;
+}
+.form-with-submit-icon {
+	display: flex;
+	align-items: center;
+	max-width: 200px;
+	justify-content: flex-end;
+
+	> .btn {
+		margin: 0;
+		margin-left: 10px;
+	}
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.centered-flex {
+	display: flex;
+	align-items: center;
+}
+.bottom-right-flex {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+.inline-block {
+	display: inline-block;
 }

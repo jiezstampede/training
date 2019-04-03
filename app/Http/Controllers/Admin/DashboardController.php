@@ -36,12 +36,15 @@ class DashboardController extends Controller
             }
         }
 
-
+        $activities = Activity::latest()->paginate(25);
+        $pagination = $activities->appends($request->except('page'))->links();
 
         return view('admin/dashboard/index')
             ->with('title', 'Dashboard')
             ->with('quote', $quote)
             ->with('quote_by', $quote_by)
+            ->with('activities', $activities)
+            ->with('pagination', $pagination)
             ->with('menu', 'dashboard');
     }
 }
