@@ -13,6 +13,9 @@ class Option
     $response['name'] = OptionModel::slug('meta-title')->value;
     $response['number'] = OptionModel::slug('contact-number')->value;
     $response['email'] = OptionModel::slug('contact-email')->value;
+    $response['sender'] = OptionModel::slug('sender-email')->value;
+    $response['sender_name'] = OptionModel::slug('sender-name')->value;
+    $response['receiver'] = OptionModel::slug('receiver-emails')->value;
     $response['facebook'] = OptionModel::slug('facebook-page')->value;
     $response['twitter'] = OptionModel::slug('twitter-page')->value;
     $response['google'] = OptionModel::slug('google-page')->value;

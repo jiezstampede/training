@@ -23,6 +23,13 @@
                     </div>
                     {!! Form::close() !!}
                 </div>
+                @if (count($data) == 0)
+                <div class="col-sm-7">
+                    <div class="text-right">
+                        <a href="{{route('adminUserRolesCreate')}}" class="btn btn-primary btn-round btn-icon"><i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
         <div class="card-body">
@@ -51,14 +58,12 @@
                         @foreach ($data as $d)
                         <tr>
                             <td class="text-center">
-                                @unless ($d->permanent)
                                 <div class="form-check">
                                     <label class="form-check-label">
                                         <input class="form-check-input" type="checkbox" name="ids[]" value="{{$d->id}}">
                                         <span class="form-check-sign"></span>
                                     </label>
                                 </div>
-                                @endunless
                             </td>
                             <td>{{$d->id}}</td>
                             <td>{{$d->name}}</td>

@@ -44,10 +44,16 @@ class Page extends BaseModel
 
     public function image()
 	{
-		return $this->hasOne('App\Page', 'image');
+		return $this->hasOne('App\Asset', 'id', 'image');
     }
+
+    public function assetGroups()
+    {
+        return $this->morphMany('App\AssetGroup', 'reference');
+    }
+    
     public function video()
 	{
-		return $this->hasOne('App\Page', 'video');
+		return $this->hasOne('App\Asset', 'id', 'video');
 	}
 }

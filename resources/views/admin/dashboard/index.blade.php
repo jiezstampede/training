@@ -40,7 +40,9 @@
         </div>
         @if ($pagination)
         <div class="card-footer">
-            {!! $pagination !!}
+            <div class="pagination-links">
+                {!! $pagination !!}
+            </div>
         </div>
         @endif
     </div>

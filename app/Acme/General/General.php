@@ -14,6 +14,12 @@ use App\PageItem;
 
 class General extends Mail
 {	
+	public function option($slug) {
+		$option = Option::whereSlug($slug)->first();
+		$response = ($option) ? $option->value: '';
+		return $response;
+	}
+	
 	public function profile() {
         return Auth::user();
     }

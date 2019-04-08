@@ -79,9 +79,8 @@ class SumoMail extends Mail
        		set_time_limit(60); //60 seconds = 1 minute
 			$return = Mail::send($view,$data,function($message) use ($params) {
 
-				if ( isset($params['cc']) || @$params['cc'] != ""){
-					// $message->cc($address, $name = null);
-	           		$message->cc($params['cc']);
+				if (isset($params['cc']) && (is_array($params['cc']) || @$params['cc'] != '')){
+					$message->cc($params['cc']);
 				}
 
 				if (isset($params['bcc']) || @$params['bcc']!= ""){

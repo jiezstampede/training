@@ -23,7 +23,8 @@
       overflow: hidden;
       position: relative;
       line-height: normal; }
-      .navbar .container-fluid .btn-round i, .navbar .container-fluid .btn-round i.nc-icon {
+      .navbar .container-fluid .btn-round i,
+      .navbar .container-fluid .btn-round i.nc-icon {
         position: relative;
         transform: initial;
         position: relative;
@@ -56,10 +57,24 @@
 .sidebar .user .info > a {
   line-height: 24px; }
 
-.btn.btn-icon, .navbar .navbar-nav > a.btn.btn-icon {
+.btn.btn-icon,
+.navbar .navbar-nav > a.btn.btn-icon {
   height: 28px;
   min-width: 28px; }
-  .btn.btn-icon:not(.btn-footer) i, .btn.btn-icon:not(.btn-footer) .fa, .btn.btn-icon:not(.btn-footer) .fas, .btn.btn-icon:not(.btn-footer) .far, .btn.btn-icon:not(.btn-footer) .fal, .btn.btn-icon:not(.btn-footer) .fab, .btn.btn-icon:not(.btn-footer) .nc-icon, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) i, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fa, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fas, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .far, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fal, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fab, .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .nc-icon {
+  .btn.btn-icon:not(.btn-footer) i,
+  .btn.btn-icon:not(.btn-footer) .fa,
+  .btn.btn-icon:not(.btn-footer) .fas,
+  .btn.btn-icon:not(.btn-footer) .far,
+  .btn.btn-icon:not(.btn-footer) .fal,
+  .btn.btn-icon:not(.btn-footer) .fab,
+  .btn.btn-icon:not(.btn-footer) .nc-icon,
+  .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) i,
+  .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fa,
+  .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fas,
+  .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .far,
+  .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fal,
+  .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .fab,
+  .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) .nc-icon {
     transform: translate(-12px, -8px); }
 
 .modal .modal-content > .modal-body {
@@ -101,6 +116,63 @@
 
 .inline-block {
   display: inline-block; }
+
+.form .sumo-asset-select-multi {
+  box-shadow: none;
+  margin-top: 0;
+  border-radius: 4px;
+  border-color: #ddd; }
+  .form .sumo-asset-select-multi .header {
+    font-size: 12px;
+    color: #9a9a9a; }
+  .form .sumo-asset-select-multi .multi-select {
+    font-size: 12px; }
+
+.card .table tr td .index-img-preview {
+  width: 80px;
+  height: 50px;
+  object-fit: cover; }
+
+.pagination li {
+  display: inline-block;
+  border-radius: 2px;
+  text-align: center;
+  vertical-align: top;
+  border-radius: 50%;
+  padding-right: 5px; }
+  .pagination li span, .pagination li a {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    height: 28px;
+    width: 28px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff !important;
+    background-color: #51cbce;
+    border-radius: 50% !important;
+    font-size: 11px;
+    text-decoration: none;
+    border: none; }
+    .pagination li span:hover, .pagination li a:hover {
+      background-color: #34b5b8; }
+  .pagination li.active span,
+  .pagination li.active a {
+    background-color: #51bcda; }
+    .pagination li.active span:hover,
+    .pagination li.active a:hover {
+      background-color: #2ba9cd; }
+  .pagination li.disabled span,
+  .pagination li.disabled a {
+    background-color: #b5b5b5 !important; }
+
+.pagination li.pages ul li {
+  display: inline-block;
+  float: none; }
 
 /*# sourceMappingURL=stampede-sass.css.map */
 
