@@ -4,7 +4,7 @@
 <ol class="breadcrumb">
 	<li><a href="{{route('adminDashboard')}}">Dashboard</a></li>
 	<li>Pages</li>
-	<li><a href="{{route('adminPages', [$page->slug])}}">{{ $page->title }}</a></li>
+	<li><a href="{{route('adminPages', [$page->slug])}}">{{ $page->name }}</a></li>
 	<li class="active">Banner</li>
 </ol>
 @stop

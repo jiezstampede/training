@@ -4,7 +4,7 @@
 <ol class="breadcrumb">
 	<li><a href="{{route('adminDashboard')}}">Dashboard</a></li>
 	<li>Pages</li>
-	<li class="active">{{ $data->title }}</li>
+	<li class="active">{{ $data->name }}</li>
 </ol>
 @stop
 
@@ -12,7 +12,7 @@
 <div class="col-sm-8">
 	<div class="card">
 		<div class="card-header">
-			<h4 class="card-title"> {{ $data->title }}</h4>
+			<h4 class="card-title"> {{ $data->name }}</h4>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
