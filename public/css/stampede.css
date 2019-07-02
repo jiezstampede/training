@@ -84,6 +84,11 @@
 
 .card-filter {
   padding: 10px 15px; }
+  .card-filter > .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center; }
 
 .form-with-submit-icon {
   display: -ms-flexbox;

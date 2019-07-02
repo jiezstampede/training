@@ -80,31 +80,44 @@ class AssetController extends Controller
 
   public function redactor(Request $request)
   {
-    $s3 = Storage::disk('s3');
     if ($request->hasFile('file')) {
-      $photo = $request->file('file');
-      $filename = str_random(50) . '.' . $photo->getClientOriginalExtension();
-      $response = [];
-      if($this->s3_active) {
-        $fullPath = $this->redactor_path_s3 . $filename;
-        $s3->put($fullPath,file_get_contents($request->file('file')),'public');
-        $filepath = $s3->url($fullPath);
-        $response = [
-          'url'=>$filepath,
-          'filelink' => $filepath,
-          'path' => $filepath
-        ];
+      if (is_array($request->file('file'))) {
+        $response = [];
+        foreach ($request->file('file') as $key => $photo) {
+          $response['file-' . $key] = $this->uploadFile($photo);
+        }
+        return response()->json($response);
       } else {
-        $photo->move($this->redactor_path, $filename);
-        $filepath = $this->redactor_path . '/' . $filename;
-        $response = [
-          'url'=>url($filepath),
-          'filelink' => url($filepath),
-          'path' => $this->redactor_path
-        ];
+        $response = [];
+        $response['file-0'] = $this->uploadFile($request->file('file'));
+        return response()->json($response);
       }
-      return response()->json($response);
     }
+  }
+
+  private function uploadFile($photo) {
+    $s3 = Storage::disk('s3');
+    $filename = str_random(50) . '.' . $photo->getClientOriginalExtension();
+    $response = [];
+    if($this->s3_active) {
+      $fullPath = $this->redactor_path_s3 . $filename;
+      $s3->put($fullPath, file_get_contents($photo),'public');
+      $filepath = $s3->url($fullPath);
+      $response = [
+        'url'=>$filepath,
+        'filelink' => $filepath,
+        'path' => $filepath
+      ];
+    } else {
+      $photo->move($this->redactor_path, $filename);
+      $filepath = $this->redactor_path . '/' . $filename;
+      $response = [
+        'url'=>url($filepath),
+        'filelink' => url($filepath),
+        'path' => $this->redactor_path
+      ];
+    }
+    return $response;
   }
 
   public function all(Request $request)

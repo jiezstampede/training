@@ -21,6 +21,10 @@
                         <li><a href="#" class="preview" data-toggle="tooltip" title="Preview"><i class="fa fa-eye"></i></a></li>
                         <li><a href="#" class="remove" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a></li>
                     </ul></div>
+                    <div class="label">
+                        <div>@{{ this.asset.name }}</div>
+                        <div>@{{ this.asset.caption }}</div>
+                    </div>
                 </div>
             </div>
             @{{/each}}
