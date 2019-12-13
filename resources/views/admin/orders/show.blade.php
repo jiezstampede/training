@@ -1,0 +1,31 @@
+<table class='table table-striped table-bordered'>
+	<tr>
+		<th>Number</th>
+		<td>{{$data->number}}</td>
+	</tr>
+	<tr>
+		<th>Date</th>
+		<td>{{$data->date}}</td>
+	</tr>
+	<tr>
+		<th>Subtotal</th>
+		<td>{{$data->subtotal}}</td>
+	</tr>
+	<tr>
+		<th>Shipping_paid</th>
+		<td>{{$data->shipping_paid}}</td>
+	</tr>
+	<tr>
+		<th>Shipping_paid</th>
+		<td>{{$data->shipping_paid}}</td>
+	</tr>
+	<tr>
+		<th>Shipping_charged</th>
+		<td>{{$data->shipping_charged}}</td>
+	</tr>
+	<tr>
+		<th>Shipping_charged</th>
+		<td>{{$data->shipping_charged}}</td>
+	</tr>
+</table>
+<a href='{{route("adminOrdersView", [$data->id])}}' class='btn btn-primary'>More Details</a>

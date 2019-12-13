@@ -1,0 +1,39 @@
+<table class='table table-striped table-bordered'>
+	<tr>
+		<th>Number</th>
+		<td>{{$data->number}}</td>
+	</tr>
+	<tr>
+		<th>Order_id</th>
+		<td>{{$data->order_id}}</td>
+	</tr>
+	<tr>
+		<th>Order_id</th>
+		<td>{{$data->order_id}}</td>
+	</tr>
+	<tr>
+		<th>Order_number</th>
+		<td>{{$data->order_number}}</td>
+	</tr>
+	<tr>
+		<th>Order_number</th>
+		<td>{{$data->order_number}}</td>
+	</tr>
+	<tr>
+		<th>Seller_sku</th>
+		<td>{{$data->seller_sku}}</td>
+	</tr>
+	<tr>
+		<th>Seller_sku</th>
+		<td>{{$data->seller_sku}}</td>
+	</tr>
+	<tr>
+		<th>Lazada_sku</th>
+		<td>{{$data->lazada_sku}}</td>
+	</tr>
+	<tr>
+		<th>Lazada_sku</th>
+		<td>{{$data->lazada_sku}}</td>
+	</tr>
+</table>
+<a href='{{route("adminOrderItemsView", [$data->id])}}' class='btn btn-primary'>More Details</a>

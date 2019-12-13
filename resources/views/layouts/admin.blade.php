@@ -7,6 +7,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
 		{!! Html::style('css/admin-plugins.css') !!}
 		{!! Html::style('css/admin.css') !!}
+		{!! Html::style('css/datepicker.css') !!}
 		{!! Html::style('css/paper-dashboard.css') !!}
 		{!! Html::style('css/stampede.css') !!}
 		{!! Html::style('third_party/redactor/redactor.min.css') !!}
@@ -72,59 +73,22 @@
 								<p>Dashboard</p>
 							</a>
 						</li>
-						<li class="{{Menu::active('pages', @$menu)}}">
-							<a data-toggle="collapse" href="#pages" aria-expanded="false">
-								<i class="nc-icon nc-book-bookmark"></i>
-								<p>
-									Pages
-									<b class="caret"></b>
-								</p>
-							</a>
-							<div class="collapse {{ Menu::active('pages', @$menu) }} " id="pages">
-								<ul class="nav">
-									<li class="{{Menu::active('pages-home', @$menu)}}">
-										<a href="{{route('adminPages', ['home'])}}">
-											<span class="sidebar-mini-icon">H</span>
-											<span class="sidebar-normal"> Home </span>
-										</a>
-									</li>
-									<li class="{{Menu::active('pages-about', @$menu)}}">
-										<a href="{{route('adminPages', ['about'])}}">
-											<span class="sidebar-mini-icon">A</span>
-											<span class="sidebar-normal"> About </span>
-										</a>
-									</li>
-									<li class="{{Menu::active('pages-mechanics', @$menu)}}">
-										<a href="{{route('adminPages', ['mechanics'])}}">
-											<span class="sidebar-mini-icon">A</span>
-											<span class="sidebar-normal"> Articles </span>
-										</a>
-									</li>
-									<li class="{{Menu::active('pages-cards', @$menu)}}">
-										<a href="{{route('adminPages', ['cards'])}}">
-											<span class="sidebar-mini-icon">C</span>
-											<span class="sidebar-normal"> Contact Us </span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li class="{{Menu::active('articles', @$menu)}}">
-							<a href="{{route('adminArticles')}}">
-								<i class="nc-icon nc-paper"></i>
-								<p>Articles</p>
+						<li class="{{Menu::active('orders', @$menu)}}">
+							<a href="{{route('adminOrders')}}">
+							<i class="fas fa-cash-register"></i>
+								<p>Orders</p>
 							</a>
 						</li>
-						<li class="{{Menu::active('articles', @$menu)}}">
-							<a href="{{route('adminArticles')}}">
-								<i class="nc-icon nc-circle-10"></i>
-								<p>Team</p>
+						<li class="{{Menu::active('transaction', @$menu)}}">
+							<a href="{{route('adminTransactions')}}">
+							<i class="fas fa-credit-card"></i>
+								<p>Transactions</p>
 							</a>
 						</li>
-						<li class="{{Menu::active('feedbacks', @$menu)}}">
-							<a href="{{route('adminFeedbacks')}}">
-								<i class="nc-icon nc-email-85"></i>
-								<p>Inquiries</p>
+						<li class="{{Menu::active('shipping_dispute', @$menu)}}">
+							<a href="{{route('adminShippingDisputes')}}">
+							<i class="fas fa-truck"></i>
+								<p>Shipping Dispute</p>
 							</a>
 						</li>
 						<li class="{{Menu::active('users', @$menu)}}">
@@ -212,6 +176,7 @@
 		@include('admin.templates.asset_image')
 		{!! Html::script('js/plugins.js') !!}
 		{!! Html::script('js/admin.js') !!}
+		{!! Html::script('js/bootstrap-datepicker.js') !!}
 		{!! Html::script('third_party/redactor/redactor.min.js') !!}
 		{!! Html::script('third_party/redactor/_plugins/table/table.min.js') !!}
 		{!! Html::script('third_party/redactor/_plugins/fontcolor/fontcolor.min.js') !!}

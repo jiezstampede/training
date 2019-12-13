@@ -1,0 +1,39 @@
+<table class='table table-striped table-bordered'>
+	<tr>
+		<th>Partner_id</th>
+		<td>{{$data->partner_id}}</td>
+	</tr>
+	<tr>
+		<th>Partner_id</th>
+		<td>{{$data->partner_id}}</td>
+	</tr>
+	<tr>
+		<th>Name</th>
+		<td>{{$data->name}}</td>
+	</tr>
+	<tr>
+		<th>Icon_type</th>
+		<td>{{$data->icon_type}}</td>
+	</tr>
+	<tr>
+		<th>Icon_type</th>
+		<td>{{$data->icon_type}}</td>
+	</tr>
+	<tr>
+		<th>Icon_value</th>
+		<td>{{$data->icon_value}}</td>
+	</tr>
+	<tr>
+		<th>Icon_value</th>
+		<td>{{$data->icon_value}}</td>
+	</tr>
+	<tr>
+		<th>Icon_color</th>
+		<td>{{$data->icon_color}}</td>
+	</tr>
+	<tr>
+		<th>Icon_color</th>
+		<td>{{$data->icon_color}}</td>
+	</tr>
+</table>
+<a href='{{route("adminPartnerSocialsView", [$data->id])}}' class='btn btn-primary'>More Details</a>

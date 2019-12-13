@@ -211,3 +211,31 @@ Route::post('api/pages/destroy', array('as'=>'apiPagesDestroy','uses'=>'PageCont
 Route::get('admin/activities', array('as'=>'adminActivities','uses'=>'Admin\ActivityController@index'));
 Route::get('admin/activities/{id}/show', array('as'=>'adminActivitiesShow','uses'=>'Admin\ActivityController@show'));
 Route::get('admin/activities/{id}/view', array('as'=>'adminActivitiesView','uses'=>'Admin\ActivityController@view'));
+
+Route::get('admin/transactions', array('as'=>'adminTransactions','uses'=>'Admin\TransactionController@index'));
+Route::get('admin/transactions/create', array('as'=>'adminTransactionsCreate','uses'=>'Admin\TransactionController@create'));
+Route::post('admin/transactions/upload', array('as'=>'adminTransactionsUploadSubmit','uses'=>'Admin\TransactionController@upload_submit'));
+Route::post('admin/transactions/upload/csv_submit', array('as'=>'adminTransactionUploadCSVSave','uses'=>'Admin\TransactionController@upload_csv_submit'));
+Route::post('admin/transactions/', array('as'=>'adminTransactionsStore','uses'=>'Admin\TransactionController@store'));
+Route::get('admin/transactions/{id}/show', array('as'=>'adminTransactionsShow','uses'=>'Admin\TransactionController@show'));
+Route::get('admin/transactions/{id}/view', array('as'=>'adminTransactionsView','uses'=>'Admin\TransactionController@view'));
+Route::get('admin/transactions/{id}/edit', array('as'=>'adminTransactionsEdit','uses'=>'Admin\TransactionController@edit'));
+Route::patch('admin/transactions/{id}', array('as'=>'adminTransactionsUpdate','uses'=>'Admin\TransactionController@update'));
+Route::post('admin/transactions/seo', array('as'=>'adminTransactionsSeo','uses'=>'Admin\TransactionController@seo'));
+Route::delete('admin/transactions/destroy', array('as'=>'adminTransactionsDestroy','uses'=>'Admin\TransactionController@destroy'));
+
+Route::get('admin/shipping_disputes', array('as'=>'adminShippingDisputes','uses'=>'Admin\ShippingDisputeController@index'));
+Route::get('admin/shipping_disputes/generate', array('as'=>'adminShippingDisputesGenerate','uses'=>'Admin\ShippingDisputeController@generate'));
+Route::post('admin/shipping_disputes/upload', array('as'=>'adminShippingDisputesUploadTransactions','uses'=>'Admin\ShippingDisputeController@upload_csv_submit'));
+
+Route::get('admin/orders', array('as'=>'adminOrders','uses'=>'Admin\OrderController@index'));
+Route::post('admin/orders/upload', array('as'=>'adminOrdersUploadCSV','uses'=>'Admin\OrderController@upload_csv'));
+Route::post('admin/orders/upload/submit', array('as'=>'adminOrdersUploadCSVSave','uses'=>'Admin\OrderController@save_uploaded'));
+Route::get('admin/orders/create', array('as'=>'adminOrdersCreate','uses'=>'Admin\OrderController@create'));
+Route::post('admin/orders/', array('as'=>'adminOrdersStore','uses'=>'Admin\OrderController@store'));
+Route::get('admin/orders/{id}/show', array('as'=>'adminOrdersShow','uses'=>'Admin\OrderController@show'));
+Route::get('admin/orders/{id}/view', array('as'=>'adminOrdersView','uses'=>'Admin\OrderController@view'));
+Route::get('admin/orders/{id}/edit', array('as'=>'adminOrdersEdit','uses'=>'Admin\OrderController@edit'));
+Route::patch('admin/orders/{id}', array('as'=>'adminOrdersUpdate','uses'=>'Admin\OrderController@update'));
+Route::post('admin/orders/seo', array('as'=>'adminOrdersSeo','uses'=>'Admin\OrderController@seo'));
+Route::delete('admin/orders/destroy', array('as'=>'adminOrdersDestroy','uses'=>'Admin\OrderController@destroy'));

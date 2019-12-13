@@ -164,7 +164,8 @@ return [
         Acme\General\GeneralServiceProvider::class,
         Acme\SumoMail\SumoMailServiceProvider::class,
         Acme\SumoImage\SumoImageServiceProvider::class,
-        Acme\Asset\AssetServiceProvider::class
+        Acme\Asset\AssetServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -223,7 +224,8 @@ return [
         'SumoMail' => Acme\Facades\SumoMail::class,
         'SumoImage' => Acme\Facades\SumoImage::class,
         'Str'   => Illuminate\Support\Str::class,
-        'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth'
+        'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
